@@ -1,0 +1,43 @@
+#ifndef COMPONENTBASE_H_INCLUDED
+#define COMPONENTBASE_H_INCLUDED
+#include "instanceCounted.h"
+#include <typeinfo>
+#include <vector>
+class ComponentBase : InstanceCounted<ComponentBase>
+{
+private:
+    bool enabled;
+    const std::type_info& type;
+    static std::vector<ComponentBase> componentList;
+public:
+    ComponentBase(const std::type_info& type)
+    :type(type){
+        this->enabled = true;
+    }
+
+
+    static const std::vector<ComponentBase>& getComponentList(){
+        return ComponentBase::componentList;
+    }
+
+    std::size_t operator()(const ComponentBase& k) const
+    {
+        return k.getType().hash_code();
+    }
+
+    bool isEnabled(){
+        return this->enabled;
+    }
+
+    void setEnabled(bool enabled){
+        this->enabled = enabled;
+    }
+
+    const std::type_info &getType(){
+        return this->type;
+    }
+    virtual ~ComponentBase() = default;
+};
+
+
+#endif // COMPONENTBASE_H_INCLUDED

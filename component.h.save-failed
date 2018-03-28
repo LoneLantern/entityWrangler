@@ -1,0 +1,105 @@
+#ifndef COMPONENT_H_INCLUDED
+#define COMPONENT_H_INCLUDED
+#include <boost/uuid/uuid.hpp>
+#include <unordered_map>
+#include <boost/functional/hash.hpp>
+#include "instanceCounted.h"
+#include "list.h"
+#include "globalDefines.h"
+#include "parser.h"
+#include "componentBase.h"
+
+#define UUID_RENAME Entity
+
+
+
+namespace COMPONENT_NAMESPACE_NAME
+{
+template <class t>
+class Component : public ComponentBase
+{
+private:
+    std::unordered_map<UUID_RENAME,List<t>, boost::hash<UUID_RENAME>> componentMap;
+    //static std::string name;
+    static string name;
+        void addList(const Entity &en, const t& data){
+        this->componentMap.insert(std::pair<UUID_RENAME,List<t>>(en,data));
+    }
+public:
+    Component()
+    {
+    }
+    string getName()
+    {
+        return ComponentTable<t>::name;
+    }
+    Component(const Component & othr)
+    {
+        this->componentMap = othr.componentMap;
+    }
+
+    List<t>& operator[](const Entity &en)
+    {
+        return this->componentMap[en];
+    }
+    List<t>& getList(const Entity &en)
+    {
+        return this->componentMap.at(en);
+    }
+
+
+    void addTo(const Entity &en, const t& data)
+    {
+        try
+        {
+            this->getList(en).addNew(data);
+        }
+        catch(std::out_of_range)
+        {
+            this->addList(en,data);
+        }
+    }
+
+
+    Node<t> &get(const Entity &en,const uint16_t id = 0)
+    {
+        auto* start = this->getList(en).getHead();
+        register uint16_t i = 0;
+        while(i<id)
+        {
+            start = start->getNext();
+            i++;
+        }
+        return *start;
+    }
+
+    void remove(const Entity &en,const uint16_t id)
+    {
+        this->getList(en).removeFrom(id);
+    }
+
+    iterator begin()
+    {
+        return this->componentMap.begin();
+    }
+
+
+    iterator end()
+    {
+        return this->componentMap.end();
+    }
+
+    void printTableContents()
+    {
+        for(typename ComponentBase<t>::iterator begin = this->componentMap.begin(), end = this->componentMap.end();
+                begin!=end; begin++)
+        {
+            std::cout<<"Entity "<<begin->first<<" contains:\n";
+            begin->second.printListContents();
+        }
+    }
+
+};
+
+}
+#endif // COMPONENT_H_INCLUDED
