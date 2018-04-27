@@ -21,6 +21,7 @@ public:
 class Font{
 private:
     std::unordered_map<uint8_t,std::unique_ptr<CharSet>> fontMap;
+<<<<<<< HEAD
     TTF_Font *font = nullptr;
     uint8_t curSize;
 public:
@@ -30,6 +31,16 @@ public:
     void setSize(uint8_t size);
 
     ~Font();
+=======
+    std::string path;
+    uint8_t curSize;
+public:
+    Font(const char* path, uint8_t size = 16);
+
+    Texture* get(const char character);
+    Texture* get(const char* string);
+    void setSize(uint8_t size);
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 #endif // FONT_H_INCLUDED

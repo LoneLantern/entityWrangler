@@ -15,10 +15,19 @@ static int missionControlPrimaryRoutine(void* dat){
         //std::cout<<"threading...\n";
     }
 }
+<<<<<<< HEAD
 
 missionControl::missionControl(){
     this->running = this->threadRunning = true;
     this->thread = SDL_CreateThread(missionControlPrimaryRoutine,"missionControlPrimaryRoutine",(void*) this);
+=======
+static missionControl* missionControl::cur = nullptr;
+static double missionControl::timeLastFrame = 0.1;
+missionControl::missionControl(){
+    this->running = this->threadRunning = true;
+    this->thread = SDL_CreateThread(missionControlPrimaryRoutine,"missionControlPrimaryRoutine",(void*) this);
+    missionControl::cur = this;
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 }
 
 missionControl::~missionControl(){

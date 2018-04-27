@@ -4,8 +4,14 @@
 #include <typeinfo>
 #include <vector>
 #include <utility>
+<<<<<<< HEAD
 #include<functional>
 #include <iostream>
+=======
+#include <functional>
+#include <iostream>
+#include <unordered_set>
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 
 class Entity;
 class ComponentBase : InstanceCounted<ComponentBase>
@@ -22,8 +28,18 @@ private:
     void unregisterSelf(){
         ComponentBase::componentList.erase(ComponentBase::componentList.begin()+this->id);
     }
+<<<<<<< HEAD
 public:
     virtual void copyTo(const Entity &source, Entity &target) = 0;
+=======
+
+protected:
+    void registerToEntity(const Entity &target);
+    std::vector<std::reference_wrapper<const Entity>> corpses;
+
+public:
+    virtual void copyTo(const Entity &source,const Entity &target) = 0;
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 
     ComponentBase(const std::type_info& type)
     :type(type){
@@ -73,6 +89,13 @@ public:
         }
     }*/
 
+<<<<<<< HEAD
+=======
+    void killEntity(const Entity &en);
+
+    virtual void clearCorpses() = 0;
+
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
     virtual ~ComponentBase(){
         this->unregisterSelf();
     }

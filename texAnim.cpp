@@ -57,3 +57,14 @@ SDL_Texture* TexAnim::use(GLenum channel)
     // std::cout<<(int)((getTime()-this->time_start)*(this->fps))%this->frames.size()<<"\t";
     return this->get()->use(channel);
 }
+<<<<<<< HEAD
+=======
+
+Vec2i TexAnim::getPxDimensions(){
+    return this->get()->getPxDimensions();
+}
+
+Vec2i TexAnim::getPxDimensions(Vec3f scale){
+    return this->get()->getPxDimensions(scale);
+}
+>>>>>>> Improved entity system. Some basic cleanup. Physics test

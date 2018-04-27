@@ -17,6 +17,10 @@ struct Rectangle
 {
     float x;
     float y;
+<<<<<<< HEAD
+=======
+    float z;
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
     float w;
     float h;
 };
@@ -33,12 +37,48 @@ struct Vec2f
 {
     float x;
     float y;
+<<<<<<< HEAD
+=======
+        float Length(){
+        return sqrt(x * x + y * y);
+    }
+    Vec2f Normalize(){
+        Vec2f vector;
+        float length = this->Length();
+
+        if(length != 0){
+            vector.x = y/length;
+            vector.y = y/length;
+        }
+
+        return vector;
+    }
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 struct Vec2i
 {
     int32_t x;
     int32_t y;
+<<<<<<< HEAD
+=======
+    // Normalizes the vector
+    // Returns the length of the vector
+    float Length(){
+        return sqrt(x * x + y * y);
+    }
+    Vec2f Normalize(){
+        Vec2f vector;
+        float length = this->Length();
+
+        if(length != 0){
+            vector.x = y/length;
+            vector.y = y/length;
+        }
+
+        return vector;
+    }
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 struct Vec3f

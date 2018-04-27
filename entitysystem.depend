@@ -38,7 +38,11 @@
 	"globalDefines.h"
 	"parser.h"
 
+<<<<<<< HEAD
 1522251561 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\main.cpp
+=======
+1523005560 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\main.cpp
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<iostream>
 	<string>
 	"node.h"
@@ -66,10 +70,17 @@
 1521216581 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\instancecounted.h
 	<cstdint>
 
+<<<<<<< HEAD
 1519891277 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\list.h
 	"node.h"
 
 1522251840 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\component.h
+=======
+1522848121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\list.h
+	"node.h"
+
+1522848121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\component.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<utility>
@@ -224,18 +235,30 @@
 
 1519484520 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\componentraw.cpp
 
+<<<<<<< HEAD
 1518953496 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\font.cpp
+=======
+1523002631 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\font.cpp
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"font.h"
 	<SDL/SDL.h>
 	<iostream>
 
+<<<<<<< HEAD
 1519891262 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\font.h
+=======
+1522999398 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\font.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<SDL/SDL_ttf.h>
 	<unordered_map>
 	"texture.h"
 	<memory>
 
+<<<<<<< HEAD
 1522240121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\texture.h
+=======
+1523011990 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\texture.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"application.h"
 	<GL/glew.h>
 	<SDL/SDL.h>
@@ -260,14 +283,22 @@
 	<stdexcept>
 	"types.h"
 
+<<<<<<< HEAD
 1521226123 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\types.h
+=======
+1522840299 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\types.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<hashtable.h>
 	<boost/functional/hash.hpp>
 	"entity.h"
 
+<<<<<<< HEAD
 1521840784 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\componentbase.h
+=======
+1522825946 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\componentbase.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"instanceCounted.h"
 	<typeinfo>
 	<vector>
@@ -296,7 +327,11 @@
 	<iostream>
 	<math.h>
 
+<<<<<<< HEAD
 1522250295 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\texture.cpp
+=======
+1523005340 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\texture.cpp
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"texture.h"
 	<iostream>
 
@@ -310,7 +345,11 @@
 	"window.h"
 	"application.h"
 
+<<<<<<< HEAD
 1522240147 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\testsystem.h
+=======
+1522847804 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\testsystem.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"component.h"
 	"texture.h"
 	<unistd.h>
@@ -357,8 +396,14 @@
 1521217048 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\system.cpp
 	"system.h"
 
+<<<<<<< HEAD
 1521837671 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entity.h
 	"componentBase.h"
+=======
+1522848121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entity.h
+	"componentBase.h"
+	<boost/uuid/uuid_generators.hpp>
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<memory>
 	<iostream>
 
@@ -367,22 +412,41 @@
 
 1521230876 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entity.cpp
 
+<<<<<<< HEAD
 1521530728 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\userinput.h
+=======
+1522933657 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\userinput.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	<SDL/SDL.h>
 	<vector>
 	<iostream>
 	<algorithm>
+<<<<<<< HEAD
 
 1521530743 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\userinput.cpp
 	"userInput.h"
 	<iostream>
 
 1522251416 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\bulletsystem.h
+=======
+	<chrono>
+
+1522933600 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\userinput.cpp
+	"userInput.h"
+	<iostream>
+
+1522933981 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\bulletsystem.h
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 	"system.h"
 	"entity.h"
 	"texture.h"
 	"component.h"
 	<iostream>
+<<<<<<< HEAD
+=======
+	<cmath>
+	"userInput.h"
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
 
 1521827360 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\application.cpp
 	"application.h"
@@ -391,3 +455,250 @@
 	"component.h"
 	<UnitTest++.h>
 
+<<<<<<< HEAD
+=======
+1523878248 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\application.cpp
+	"application.h"
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\application.h
+	<SDL/SDL.h>
+	<stdexcept>
+	<GL/glew.h>
+	<SDL/SDL_opengl.h>
+	<string>
+
+1524848709 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
+	"componentBase.h"
+	"entity.h"
+	<algorithm>
+
+1524848709 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.h
+	"instanceCounted.h"
+	<typeinfo>
+	<vector>
+	<utility>
+	<functional>
+	<iostream>
+	<unordered_set>
+
+1523878248 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\instancecounted.h
+	<cstdint>
+
+1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componenttest.cpp
+	"component.h"
+	<UnitTest++.h>
+
+1524847648 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<utility>
+	<boost/functional/hash.hpp>
+	"instanceCounted.h"
+	"list.h"
+	"globalDefines.h"
+	"parser.h"
+	"componentBase.h"
+	"entity.h"
+	<memory>
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\list.h
+	"node.h"
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\node.h
+	<memory>
+	<typeinfo>
+	"instanceCounted.h"
+	<iostream>
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\globaldefines.h
+	<boost/uuid/uuid.hpp>
+
+1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.h
+	<string>
+	<cstring>
+
+1524848788 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
+	"componentBase.h"
+	<boost/uuid/uuid_generators.hpp>
+	<memory>
+	<iostream>
+
+1524647370 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.cpp
+	"Entity.h"
+
+1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.cpp
+	"font.h"
+	<SDL/SDL.h>
+	<iostream>
+
+1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.h
+	<SDL/SDL_ttf.h>
+	<unordered_map>
+	"texture.h"
+	<memory>
+
+1524470101 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.h
+	"application.h"
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<SDL/SDL_image.h>
+	"window.h"
+	"types.h"
+	"instanceCounted.h"
+	"component.h"
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.h
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<stdexcept>
+	"types.h"
+
+1524666194 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\types.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<hashtable.h>
+	<boost/functional/hash.hpp>
+	"entity.h"
+
+1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\lua.cpp
+	"lua.h"
+	"component.h"
+	<string>
+
+1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\lua.h
+	<sol.hpp>
+	<iostream>
+	"globalDefines.h"
+	"entity.h"
+
+1524652472 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
+	<iostream>
+	<string>
+	"node.h"
+	"list.h"
+	"component.h"
+	<unordered_map>
+	<boost/uuid/uuid_io.hpp>
+	<random>
+	"systemCTypes.h"
+	"texture.h"
+	"window.h"
+	"font.h"
+	"testSystem.h"
+	<UnitTest++.h>
+	"userInput.h"
+	"bulletSystem.h"
+	"action.h"
+	"texAnim.h"
+
+1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.h
+	"component.h"
+	<string>
+	"globalDefines.h"
+
+1524652393 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\testsystem.h
+	"component.h"
+	"texture.h"
+	<unistd.h>
+	"transform.h"
+	"system.h"
+	"iteratorTools.h"
+
+1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.h
+	"types.h"
+	"component.h"
+	<SDL/SDL.h>
+	"window.h"
+	"application.h"
+
+1524644895 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\system.h
+	"instanceCounted.h"
+	<functional>
+	<vector>
+	<algorithm>
+	<iostream>
+
+1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.h
+	<SDL/SDL.h>
+	<vector>
+	<iostream>
+	<algorithm>
+	<chrono>
+
+1524665079 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\bulletsystem.h
+	"system.h"
+	"entity.h"
+	"texture.h"
+	"component.h"
+	<iostream>
+	<cmath>
+	"iteratorTools.h"
+	"userInput.h"
+
+1524470115 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.h
+	"texture.h"
+	<vector>
+	<memory>
+	<string>
+
+1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.cpp
+	"parser.h"
+	<cstring>
+
+1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\system.cpp
+	"system.h"
+
+1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.cpp
+	"systemCTypes.h"
+
+1524470199 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.cpp
+	"texAnim.h"
+	<boost/filesystem.hpp>
+	<ctime>
+	<iostream>
+
+1524469848 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
+	"texture.h"
+	<iostream>
+
+1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texturetest.cpp
+	<UnitTest++.h>
+	<SDL/SDL.h>
+
+1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.cpp
+	"transform.h"
+
+1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
+	"userInput.h"
+	<iostream>
+
+1524218465 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.cpp
+	"window.h"
+	<iostream>
+	<math.h>
+
+1524569841 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\action.h
+	<functional>
+	<tuple>
+
+1524589662 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\hook.h
+	<unordered_map>
+	<boost/any.hpp>
+	<boost/fusion/functional/invocation/invoke.hpp>
+	<boost/function.hpp>
+	<map>
+	<string>
+	<iostream>
+	"list.h"
+	"action.h"
+
+1524589667 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\hook.cpp
+	"hook.h"
+
+1524589945 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\iteratorfilter.h
+
+1524645284 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\iteratortools.h
+
+>>>>>>> Improved entity system. Some basic cleanup. Physics test

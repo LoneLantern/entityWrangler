@@ -8,7 +8,11 @@ SDL_Renderer* Window::activeRenderer = nullptr;
 
 Vec2f Window::px2GLC(Vec2i px)
 {
+<<<<<<< HEAD
     // std::cout<<"converting ("<<px.x<<"|"<<px.y<<") to ("<<((float)px.x/(float)Window::activeWindow->dimensions.w)*2.0f-1.0f<<"|"<<((float)px.y/(float)Window::activeWindow->dimensions.h)*2.0f-1.0f<<")"<<"\n";
+=======
+     std::cout<<"converting ("<<px.x<<"|"<<px.y<<") to ("<<((float)px.x/(float)Window::activeWindow->dimensions.w)*2.0f-1.0f<<"|"<<((float)px.y/(float)Window::activeWindow->dimensions.h)*2.0f-1.0f<<")"<<"\n";
+>>>>>>> Improved entity system. Some basic cleanup. Physics test
     return {((float)px.x/(float)Window::activeWindow->dimensions.w)*2.0f-1.0f,
             ((float)px.y/(float)Window::activeWindow->dimensions.h)*2.0f-1.0f};
 }
