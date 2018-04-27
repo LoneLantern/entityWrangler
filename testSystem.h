@@ -5,10 +5,7 @@
 #include <unistd.h>
 #include "transform.h"
 #include "system.h"
-<<<<<<< HEAD
-=======
 #include "iteratorTools.h"
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
 using namespace component;
 
@@ -31,12 +28,8 @@ public:
 
     virtual void update(){
         int i = 0;
-<<<<<<< HEAD
-        for(auto it = this->TexMgr.begin(),end = this->TexMgr.end();it!=end;it++){
-=======
         ITERATE_COMP(TexMgr,it){
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
             auto *h = it->second.getHead();
             while(h){
                 Node<std::shared_ptr<Transform>> *help = &this->TransMgr.get(it->first);
@@ -46,19 +39,6 @@ public:
                     float yVal = (13*cos(x)-5*cos(2*x)-2*cos(3*x)-cos(4*x))*-1;
                     Vec2i pos = Window::gLC2Px({trans.getPosition().x,trans.getPosition().y});
                     Vec2i scale = h->getData()->getPxDimensions(trans.getScale());
-<<<<<<< HEAD
-                    SDL_Rect rect = {pos.x,pos.y,scale.x,scale.y};
-                    SDL_RenderCopy(Window::getActiveRenderer(),h->getData()->use(),NULL,&rect);
-                    h=h->getNext();
-                    x+=0.01f;
-                    help=help->getNext();
-                }
-            }
-        }
-         //           getchar();
-
-    }
-=======
 
                     SDL_Rect rect = {pos.x,pos.y,scale.x,scale.y};
                    // std::cout<<trans.getRotation().z<<"\n";
@@ -75,7 +55,6 @@ public:
             }
         }
     };
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 #endif // TESTSYSTEM_H_INCLUDED

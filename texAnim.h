@@ -22,11 +22,8 @@ public:
 
     SDL_Texture* use(GLenum channel = GL_TEXTURE0);
     Texture* get();
-<<<<<<< HEAD
-=======
     virtual Vec2i getPxDimensions();
     virtual Vec2i getPxDimensions(Vec3f scale);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 

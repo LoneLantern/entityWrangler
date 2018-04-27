@@ -98,16 +98,12 @@ void Texture::initSDLImg()
 }
 void Texture::initFromSDLSurf(SDL_Surface *surface)
 {
-<<<<<<< HEAD
-    this->initDimensions(surface);
-=======
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->SDLSurf = surface;
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->initDimensions(surface);
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     if(Window::getActiveRenderer()!=nullptr&&Window::getActiveRenderer()!=NULL)
     {
         this->SDLTex = SDL_CreateTextureFromSurface(Window::getActiveRenderer(),surface);
@@ -118,14 +114,10 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
 
     }
     else this->SDLTex = nullptr;
-<<<<<<< HEAD
-    this->GLTex = this->SDLSurf2GLTex(surface);
-=======
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->GLTex = this->SDLSurf2GLTex(surface);
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 //     this->width = Window::px2GLC(surface->w);
      //this->height = Window::getActiveWindow()->px2GLC(surface->h);
 
@@ -135,15 +127,10 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
 
 void Texture::initDimensions(SDL_Surface *surface)
 {
-<<<<<<< HEAD
-    this->dimensions.x = Window::px2GLC({surface->w,0}).x;
-    this->dimensions.y = Window::px2GLC({0,surface->h}).y;
-=======
     cout<<"tex:" <<surface->w<<" | "<<surface->h<<" \n";
     this->dimensions.x = Window::px2GLC({surface->w,0}).x;
     this->dimensions.y = Window::px2GLC({0,surface->h}).y;
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 }
 
 void Texture::initFromFile(const char* file)
@@ -222,11 +209,7 @@ Vec2f Texture::getGLCDimensions()
 Vec2i Texture::getPxDimensions()
 {
     // std::cout<<"("<<this->dimensions.x<<"|"<<this->dimensions.y<<")"<<"\n";
-<<<<<<< HEAD
-
-=======
 //    std::cout<<"w:"<<this->dimensions.x<<"h:"<<this->dimensions.y<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     return {Window::gLC2Px({this->dimensions.x,0}).x,Window::gLC2Px({0,this->dimensions.y}).y};
 }
 
@@ -234,12 +217,7 @@ Vec2i Texture::getPxDimensions()
 Vec2i Texture::getPxDimensions(Vec3f scale)
 {
     // std::cout<<"("<<this->dimensions.x<<"|"<<this->dimensions.y<<")"<<"\n";
-<<<<<<< HEAD
-
-    return {Window::gLC2Px({this->dimensions.x*scale.x,0}).x,Window::gLC2Px({0,this->dimensions.y*scale.y}).y};
-=======
      return {Window::gLC2Px({this->dimensions.x*scale.x,0}).x,Window::gLC2Px({0,this->dimensions.y*scale.y}).y};
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 }
 
 
@@ -250,7 +228,7 @@ Texture::~Texture()
         SDL_DestroyTexture(this->SDLTex);
     }
     glDeleteTextures(1,&this->GLTex);
-    std::cout<<"DESTROYED!!!!!!!!!!!!"<<"\n";
+//    std::cout<<"DESTROYED!!!!!!!!!!!!"<<"\n";
 }
 /*
 template<>

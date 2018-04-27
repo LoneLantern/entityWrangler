@@ -17,10 +17,7 @@ struct Rectangle
 {
     float x;
     float y;
-<<<<<<< HEAD
-=======
     float z;
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     float w;
     float h;
 };
@@ -37,8 +34,6 @@ struct Vec2f
 {
     float x;
     float y;
-<<<<<<< HEAD
-=======
         float Length(){
         return sqrt(x * x + y * y);
     }
@@ -53,15 +48,12 @@ struct Vec2f
 
         return vector;
     }
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 struct Vec2i
 {
     int32_t x;
     int32_t y;
-<<<<<<< HEAD
-=======
     // Normalizes the vector
     // Returns the length of the vector
     float Length(){
@@ -78,7 +70,6 @@ struct Vec2i
 
         return vector;
     }
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 };
 
 struct Vec3f

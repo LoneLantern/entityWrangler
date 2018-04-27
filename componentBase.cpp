@@ -1,10 +1,4 @@
 #include "componentBase.h"
-<<<<<<< HEAD
-
-std::vector<std::reference_wrapper<ComponentBase>> ComponentBase::componentList;
-
-
-=======
 #include "entity.h"
 #include <algorithm>
 std::vector<std::reference_wrapper<ComponentBase>> ComponentBase::componentList;
@@ -26,5 +20,4 @@ void ComponentBase::registerToEntity(const Entity &target){
 }
 
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 

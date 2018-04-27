@@ -38,18 +38,25 @@ TTF_Font* CharSet::getFont(){
     return this->assignedFont;
 }
 
-<<<<<<< HEAD
-=======
 Font::Font(const char* path, uint8_t size = 16){
     this->path = path;
     this->setSize(size);
 }
 
 Texture* Font::get(const char character){
+    std::cout<<"Character to render: "<<character<<"\n";
     return &*this->fontMap.at(this->curSize)->get(character);
 }
-Texture* Font::get(const char* string){
+Texture* Font::get(const char* cString){
+    std::string str(cString);
+    std::cout<<"String to render:"<<str<<"\n";
 
+    Texture *start = this->get(str[0]);
+    for(int i = 1;i<str.size();i++){
+        start->copyOnto(*this->get(str[i]),{i*30,0},true);
+        std::cout<<"I="<<i<<"\n";
+    }
+    return start;
 }
 
 void Font::setSize(uint8_t size){
@@ -59,4 +66,3 @@ void Font::setSize(uint8_t size){
 }
 
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test

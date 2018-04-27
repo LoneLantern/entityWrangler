@@ -4,10 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-<<<<<<< HEAD
-=======
 #include <chrono>
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 #define VECTOR_CONTAINS(v,x) (std::find(v.begin(), v.end(), x) != v.end())
 #define VECTOR_FIND(v,x) std::find(v.begin(), v.end(), x)
 class InputHandler{
@@ -55,30 +52,20 @@ private:
     bool running;
     bool threadRunning;
     SDL_Thread *thread;
-<<<<<<< HEAD
-
-    int returnThreads(bool wait = true);
-=======
     std::chrono::time_point<std::chrono::high_resolution_clock> frameStart;
     static double timeLastFrame;
     int returnThreads(bool wait = true);
     static missionControl *cur;
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 public:
     missionControl();
     bool isRunning();
     void changeRunningState(bool state){
         this->running = state;
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
     bool threadStatus(){
         return this->threadRunning;
     }
-<<<<<<< HEAD
-=======
     void startFrame(){
         std::chrono::duration<double> elapsed = std::chrono::high_resolution_clock::now() - this->frameStart;
         this->timeLastFrame = elapsed.count();
@@ -93,13 +80,9 @@ public:
     static double deltaTime(){
         return missionControl::timeLastFrame;
     }
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     InputHandler input;
     ~missionControl();
 };
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 #endif // MISSIONCONTROL_H_INCLUDED

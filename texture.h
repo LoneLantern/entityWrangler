@@ -14,9 +14,6 @@ void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename);
 class Texture:InstanceCounted<Texture>,public Base
 {
 private:
-<<<<<<< HEAD
-    SDL_Texture *SDLTex;
-=======
     #if SDL_BYTEORDER == SDL_BIG_ENDIAN
     const uint32_t R_MASK = 0xff000000;
     const uint32_t G_MASK = 0x00ff0000;
@@ -30,7 +27,6 @@ private:
 #endif
     SDL_Texture *SDLTex;
     SDL_Surface *SDLSurf;
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     GLuint GLTex;
     SYSTEM_NAMESPACE::Vec2f dimensions;
 
@@ -45,20 +41,11 @@ public:
     Texture(const char* file);
     Texture(){
         this->initFromFile("./error.png");
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
     Texture(SDL_Surface *surface);
 
     virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0);
-<<<<<<< HEAD
-
-    Vec2f getGLCDimensions();
-    Vec2i getPxDimensions();
-    Vec2i getPxDimensions(Vec3f scale);
-=======
     void copyOnto(const Texture& rhs, Vec2i location, bool changeSize = false){
         uint32_t format;
         int ac;
@@ -89,7 +76,6 @@ public:
     Vec2f getGLCDimensions();
     virtual Vec2i getPxDimensions();
     virtual Vec2i getPxDimensions(Vec3f scale);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
     virtual ~Texture();
 

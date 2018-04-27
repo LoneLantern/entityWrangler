@@ -14,10 +14,7 @@
 #include <UnitTest++.h>
 #include "userInput.h"
 #include "bulletSystem.h"
-<<<<<<< HEAD
-=======
 #include "action.h"
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 #include "texAnim.h"
 #define STRMAP_TEMP_ARGS std::string,List<std::string>
 
@@ -35,10 +32,7 @@ void printList(List<t> &list){
     }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 template<class t>
 void printComponentTableEnt(Component<t> &table, Entity &ent){
     cout<<"Entity "<<ent()<<" contains:\n";
@@ -98,8 +92,6 @@ void printLogo(){
     cout<<"................................ ... ... ... ... ... ... ... ...                "<<"\n";
 }
 
-<<<<<<< HEAD
-=======
 void add(int x,int y){
     cout<<"Result:" << x+y<<"\n";
 }
@@ -107,16 +99,11 @@ void printTime(float time){
     cout<<"Time: "<<time<<"\n";
 }
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 bool randomBool(){
     srand(clock());
     return (bool)(rand()%10)/10;
 }
-<<<<<<< HEAD
-
-=======
 Uint64 artificialLag = 0;
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 int main(SDL_MAIN_PARAM)
 {
     missionControl appC;
@@ -146,37 +133,22 @@ int main(SDL_MAIN_PARAM)
     textureCT TexMgr;
     transformCT TransformMgr;
     tagCT TagMgr;
-<<<<<<< HEAD
-    BulletSystem sys(TagMgr,TransformMgr);
-
-    TransformMgr.addTo(Man,-1.0f,-1.0f,0.0f);
-    TransformMgr.addTo(TestEnt,-1.0f,1.0f,1.0f);
-=======
 
     Man.setProtection(true);
     TestEnt.setProtection(true);
 
     TransformMgr.addTo(Man,-1.0f,-1.0f,0.0f);
     TransformMgr.addTo(TestEnt,0.0f,1.0f,1.0f);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     TexAnim *ptr = new TexAnim("./ship",24);
     cout<<"Giving TexAnim ptr with addr ("<<ptr<<")\n";
 
     cout<<"Test calling texAnim use pre insert\n";
     ptr->use();
-<<<<<<< HEAD
-    TexMgr.addTo(Man,ptr);
-
-=======
     TagMgr.addTo(Man,"player");
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     TestSystem system(TexMgr,TransformMgr);
     TagMgr.addTo(bullet,"bullet");
     TexMgr.addTo(bullet,new TexAnim("./bullet",24));
     TransformMgr.addTo(bullet,0.24f,0.6f,0.0f);
-<<<<<<< HEAD
-
-=======
     TexMgr.addTo(Man,ptr);
     Action testAct(&printLogo);
     testAct.act();
@@ -185,32 +157,19 @@ int main(SDL_MAIN_PARAM)
     addAct.act();
     float time=0.0f;
     //Hook::add("update",&printTime);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
   /*  for(char c=FONTRENDER_START;c<=FONTRENDER_END;c++){
         TexMgr.addTo(Man,characterSet.get(c));
     }*/
-<<<<<<< HEAD
-    TexMgr.addTo(TestEnt,"./demo.jpg");
-
-=======
     //TexMgr.addTo(TestEnt,"./demo.jpg");
 
     BulletSystem sys(TagMgr,TransformMgr);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
     cout<<"back to main..."<<"\n";
     try{
        // TestSystem& sys = Lua::getEnv()["sys"];
 
     cout<<"entering loop..."<<"\n";
-<<<<<<< HEAD
-
-    std::vector<std::shared_ptr<Entity>> bullets;
-    time_t start = clock();
-    int i = 0;
-    while(appC.isRunning()){
-=======
     cout<<"-";
     std::vector<std::shared_ptr<Entity>> bullets;
     cout<<"-";
@@ -219,14 +178,16 @@ int main(SDL_MAIN_PARAM)
     int i = 0;
     cout<<"-";
     float conduct = 0.0f;
+    std::cout<<"TRYING TO USE FONT\n";
+    Font font("./fonts/RobotoCondensed-Light.ttf");
+    font.setSize(80);
     bullet.setProtection(true);
-
+    Texture fontTex = *font.get("This is a test");
     while(appC.isRunning()){
         //Hook::call("update",time);
         Vec3f playerPos = TransformMgr.get(Man).getData()->getPosition();
         Vec3f newPlayerPos;
         appC.startFrame();
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         SDL_SetRenderDrawColor(Window::getActiveRenderer(),100,100,100,255);
         SDL_RenderClear(Window::getActiveRenderer());
         for(System& sys:System::getRegister()){
@@ -234,72 +195,35 @@ int main(SDL_MAIN_PARAM)
         }
         if(appC.input.keyIsDown(SDLK_a)){
             Vec3f pos = TransformMgr.get(Man).getData()->getPosition();
-<<<<<<< HEAD
-            TransformMgr.get(Man).getData()->setPosition({pos.x+0.002f,pos.y,pos.z});
-                        cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
-=======
             TransformMgr.get(Man).getData()->setPosition({pos.x+2*missionControl::deltaTime(),pos.y,pos.z});
 //cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
         }
         if(appC.input.keyIsDown(SDLK_d)){
             Vec3f pos = TransformMgr.get(Man).getData()->getPosition();
-<<<<<<< HEAD
-            TransformMgr.get(Man).getData()->setPosition({pos.x-0.002f,pos.y,pos.z});
-            cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
-=======
             TransformMgr.get(Man).getData()->setPosition({pos.x-2*missionControl::deltaTime(),pos.y,pos.z});
          //   cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         }
 
         if(appC.input.keyIsDown(SDLK_w)){
             Vec3f pos = TransformMgr.get(Man).getData()->getPosition();
-<<<<<<< HEAD
-            TransformMgr.get(Man).getData()->setPosition({pos.x,pos.y+0.002,pos.z});
-                        cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
-=======
             TransformMgr.get(Man).getData()->setPosition({pos.x,pos.y+2*missionControl::deltaTime(),pos.z});
 //cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
         }
         if(appC.input.keyIsDown(SDLK_s)){
             Vec3f pos = TransformMgr.get(Man).getData()->getPosition();
-<<<<<<< HEAD
-            TransformMgr.get(Man).getData()->setPosition({pos.x,pos.y-0.002f,pos.z});
-            cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
-=======
             TransformMgr.get(Man).getData()->setPosition({pos.x,pos.y-2*missionControl::deltaTime(),pos.z});
         //    cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         }
         if(appC.input.keyIsDown(SDLK_LSHIFT)){
             Vec3f scale = TransformMgr.get(Man).getData()->getScale();
             TransformMgr.get(Man).getData()->setScale({scale.x+0.002f,scale.y+0.002f,scale.z});
-<<<<<<< HEAD
-            cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
-=======
            // cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         }
         if(appC.input.keyIsDown(SDLK_LCTRL)){
             Vec3f scale = TransformMgr.get(Man).getData()->getScale();
             TransformMgr.get(Man).getData()->setScale({scale.x-0.002f,scale.y-0.002f,scale.z});
-<<<<<<< HEAD
-            cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
-        }
-        if(true){
-            Entity *newEnt = new Entity;
-            //cout<<"size:"<<bullets.size();
-            ComponentBase* arr[2];
-            arr[0] = &TexMgr;
-            arr[1] = &TagMgr;
-          //  TagMgr.addTo(*newEnt,"bullet");
-          //  cout<<*TagMgr[*newEnt].getHead()->getData()<<"\n";
-           // TexMgr.addTo(*newEnt,new TexAnim("./bullet",24));            //cout<<"starting to copy";
-=======
            // cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
         }
         newPlayerPos = TransformMgr.get(Man).getData()->getPosition();
@@ -313,27 +237,22 @@ int main(SDL_MAIN_PARAM)
             //TagMgr.addTo(*newEnt,"bullet");
           //  cout<<*TagMgr[*newEnt].getHead()->getData()<<"\n";
             //TexMgr.addTo(*newEnt,new TexAnim("./bullet",24));            //cout<<"starting to copy";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
             newEnt->copyComponents(bullet,arr,2);
             //cout<<"returned\n";
             TransformMgr.addTo(*newEnt,0,0,0);
             //cout<<"added\n";
             //cout<<"pushed\n";
-<<<<<<< HEAD
-        }
-        if(appC.input.keyIsDown(SDLK_SPACE)){
-            getchar();
-        }
-        SDL_PollEvent(NULL);
-        win.swap();
-        //cout<<(clock()-start)/(float)CLOCKS_PER_SEC<<"|"<<i<<"\n";
-        start = clock();
-        i++;
-=======
             conduct = 0.0f;
         }
-
-
+        SDL_Rect ok;
+        ok.x=10;
+        ok.y=10;
+        ok.w=250;
+        ok.h=30;
+        SDL_RenderCopy(Window::getActiveRenderer(),
+                       font.get(std::to_string(conduct).c_str())->use(),
+                       NULL,
+                        &ok);
         win.swap();
         SDL_PollEvent(NULL);
        // std::cout<<"VX:\t"<<abs(newPlayerPos.x-playerPos.x)<<"\tVY:\t"<<abs(newPlayerPos.y-playerPos.y)<<"\tTime:\t"<<missionControl::deltaTime()<<"\n";
@@ -344,7 +263,6 @@ int main(SDL_MAIN_PARAM)
         TexMgr.clearCorpses();
         TagMgr.clearCorpses();
         TransformMgr.clearCorpses();
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
     }catch(const std::exception &err){
         cout<<err.what()<<"\n";

@@ -1,9 +1,6 @@
 #ifndef HOOK_H_INCLUDED
 #define HOOK_H_INCLUDED
 #include <unordered_map>
-<<<<<<< HEAD
-#include "list.h"
-=======
 #include <boost/any.hpp>
 #include <boost/fusion/functional/invocation/invoke.hpp>
 #include <boost/function.hpp>
@@ -73,7 +70,6 @@ public:
         }
     }
 };*/
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
 
 #endif // HOOK_H_INCLUDED

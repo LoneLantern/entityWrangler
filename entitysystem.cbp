@@ -40,10 +40,7 @@
 		<Linker>
 			<Add option="-pg -lgmon" />
 		</Linker>
-<<<<<<< HEAD
-=======
 		<Unit filename="action.h" />
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
 		<Unit filename="bulletSystem.h" />
@@ -51,25 +48,13 @@
 		<Unit filename="componentBase.cpp" />
 		<Unit filename="componentBase.h" />
 		<Unit filename="componentTest.cpp" />
-<<<<<<< HEAD
-=======
 		<Unit filename="componentable.h" />
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 		<Unit filename="entity.cpp" />
 		<Unit filename="entity.h" />
 		<Unit filename="font.cpp" />
 		<Unit filename="font.h" />
 		<Unit filename="functionComponent.h" />
 		<Unit filename="globalDefines.h" />
-<<<<<<< HEAD
-		<Unit filename="hook.h" />
-		<Unit filename="instanceCounted.h" />
-		<Unit filename="list.h" />
-		<Unit filename="lua.cpp" />
-		<Unit filename="main.cpp" />
-		<Unit filename="message.h" />
-		<Unit filename="node.h" />
-=======
 		<Unit filename="hook.cpp" />
 		<Unit filename="hook.h" />
 		<Unit filename="instanceCounted.h" />
@@ -83,7 +68,6 @@
 		<Unit filename="nameable.h" />
 		<Unit filename="node.h" />
 		<Unit filename="parameterPack.h" />
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 		<Unit filename="parser.cpp" />
 		<Unit filename="parser.h" />
 		<Unit filename="reminder.txt" />
@@ -97,10 +81,7 @@
 		<Unit filename="texture.cpp" />
 		<Unit filename="texture.h" />
 		<Unit filename="textureTest.cpp" />
-<<<<<<< HEAD
-=======
 		<Unit filename="timer.h" />
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 		<Unit filename="transform.cpp" />
 		<Unit filename="transform.h" />
 		<Unit filename="types.h" />

@@ -12,10 +12,7 @@
 #include "entity.h"
 #include <memory>
 #define UUID_RENAME Entity
-<<<<<<< HEAD
-=======
 #define ITERATE_COMP(mgr, itname) for(auto itname = mgr.begin(),_itend = mgr.end();itname!=_itend;itname++)
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
 namespace COMPONENT_NAMESPACE_NAME
 {
@@ -23,21 +20,14 @@ template <class t>
 class Component : public ComponentBase
 {
 private:
-<<<<<<< HEAD
-=======
     //std::vector<std::reference_wrapper<const Entity>> corpses;
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     typedef typename std::unordered_map<std::reference_wrapper<const Entity>,List<std::shared_ptr<t>>,EntityHasher,std::equal_to<const Entity>> mapType;
     mapType componentMap;
     //static std::string name;
     template<typename... Args>
     void addList(const Entity &en, const std::shared_ptr<t> &ptr)
     {
-<<<<<<< HEAD
-        this->componentMap.insert(std::pair<std::reference_wrapper<const Entity>,List<std::shared_ptr<t>>>(en,ptr));
-    }
-=======
 //        std::cout<<".";
         this->componentMap.emplace(en,ptr);
 //        std::cout<<".";
@@ -50,19 +40,10 @@ private:
 
 
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 protected:
 public:
     typedef typename mapType::iterator iterator;
 
-<<<<<<< HEAD
-    virtual void copyTo(const Entity &source,Entity &target)
-    {
-        Node<shared_ptr<t>> *h = &this->get(source);
-        while(h)
-        {
-            this->addTo(target,*h->getData());
-=======
     virtual void copyTo(const Entity &source,const Entity &target)
     {
         cout<<"-";
@@ -71,7 +52,6 @@ public:
         {
             cout<<"-";
             this->addTo(target,h->getData());
->>>>>>> Improved entity system. Some basic cleanup. Physics test
             h=h->getNext();
         }
     }
@@ -88,28 +68,11 @@ public:
     {
         return this->componentMap[en];
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     List<std::shared_ptr<t>>& getList(const Entity &en)
     {
         return this->componentMap.at(en);
     }
-<<<<<<< HEAD
-    template<typename... Args>
-    void addTo(const Entity &en, Args...args)
-    {
-        try
-        {
-            auto & l= this->getList(en);
-            l.addNew(std::make_shared<t>(std::forward<Args>(args)...));
-        }
-        catch(std::out_of_range ex)
-        {
-            this->addList(en,std::make_shared<t>(std::forward<Args>(args)...));
-        }
-=======
     template <typename Arg, typename... Args>
     static void doPrint(std::ostream& out, Arg&& arg, Args&&... args)
     {
@@ -124,28 +87,11 @@ public:
           Component::doPrint(std::cout,args...);
           std::cout<<")\n";*/
         this->addTo(en,std::make_shared<t>(std::forward<Args>(args)...));
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
 
     template < typename U, typename std::enable_if< std::is_base_of<t, U>::value, U>::type* = nullptr >
     void addTo( const Entity &en,U* ptr)
     {
-<<<<<<< HEAD
-        std::cout<<"New addTo called with ptr ("<<ptr<<")\n";
-         try
-        {
-            std::cout<<"New add to tries to add new to existing list...\n";
-            const List<std::shared_ptr<t>> &list = this->getList(en);
-            std::cout<<"Recieved list...\n";
-            list.addNew(shared_ptr<t>(ptr));
-        }catch(std::out_of_range){
-            std::cout<<"Failed! \n";
-            std::cout<<"Trying to add new list\n";
-            this->addList(en,shared_ptr<t>(ptr));
-            std::cout<<"Added new List OK. \n";
-            std::cout<<"\n";
-        }
-=======
         //   std::cout<<"Pointer was called\n";
         this->addTo(en,shared_ptr<t>(ptr));
     }
@@ -163,7 +109,6 @@ public:
             this->addList(en,ptr);
         }
         this->registerToEntity(en);
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
     template<typename... Args>
     static int addByType(const Entity &en, Args...args)
@@ -187,10 +132,7 @@ public:
 
     Node<std::shared_ptr<t>> &get(const Entity &en,const uint16_t id = 0)
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         auto* start = this->getList(en).getHead();
         register uint16_t i = 0;
         while(i<id)
@@ -198,15 +140,12 @@ public:
             start = start->getNext();
             i++;
         }
-<<<<<<< HEAD
-=======
         /*if(en.getStatus()==ENTITY_DEAD)
         {
             cout<<"Putting corpse on the pile";
             this->corpses.push_back(en);
             cout<<"-->done\n";
         }*/
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         return *start;
     }
 
@@ -231,12 +170,6 @@ public:
         for(auto begin = this->componentMap.begin(), end = this->componentMap.end();
                 begin!=end; begin++)
         {
-<<<<<<< HEAD
-            std::cout<<"Entity "<<begin->first()<<" contains:\n";
-            begin->second.printListContents();
-        }
-    }
-=======
 //            std::cout<<"Entity "<<begin->first()<<" contains:\n";
             begin->second.printListContents();
         }
@@ -247,7 +180,6 @@ public:
             this->componentMap.erase(ent);
         }
     }
->>>>>>> Improved entity system. Some basic cleanup. Physics test
 
     virtual ~Component() = default;
 };

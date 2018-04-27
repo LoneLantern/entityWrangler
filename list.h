@@ -51,11 +51,8 @@ public:
             if(!this->head)
             {
                 this->initHead(data);
-<<<<<<< HEAD
-=======
             }else{
                 std::cout<<"cought problem but nothing was done @list::addNew\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
             }
         }
     }
@@ -80,27 +77,16 @@ public:
 
     void printListContents(){
         Node<t> *h = &*this->head;
-<<<<<<< HEAD
-        std::cout<<"---List<"<<typeid(t).name()<<"> start---"<<"\n";
-=======
 //        std::cout<<"---List<"<<typeid(t).name()<<"> start---"<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         while(h){
             h->printNode();
             h=h->getNext();
         }
-<<<<<<< HEAD
-        std::cout<<"---List end---"<<"\n";
-    }
-
-    ~List(){
-=======
  //       std::cout<<"---List end---"<<"\n";
     }
 
     ~List(){
    //     std::cout<<"List was destroyed\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
         Node<t> *h = &*this->head;
         while(h){
             Node<t> *helper = h;

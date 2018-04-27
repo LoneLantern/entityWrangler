@@ -1,15 +1,6 @@
 #ifndef ENTITY_H_INCLUDED
 #define ENTITY_H_INCLUDED
 #include "componentBase.h"
-<<<<<<< HEAD
-#include <memory>
-#include <iostream>
-
-class Entity{
-private:
-    boost::uuids::uuid uuid;
-public:
-=======
 #include <boost/uuid/uuid_generators.hpp>
 #include <memory>
 #include <iostream>
@@ -26,7 +17,6 @@ public:
     Entity()
     :uuid(boost::uuids::random_generator()()){
     }
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     const boost::uuids::uuid &operator ()()const{
         return this->uuid;
     }
@@ -35,16 +25,6 @@ public:
     }
 
 
-<<<<<<< HEAD
-
-    void copyComponents(const Entity &source,ComponentBase** mgrs, int c){
-        for(int i = 0; i < c; i ++){
-            mgrs[i]->copyTo(source,*this);
-        }
-    }
-    ~Entity(){
-        std::cout<<"ENTITY WAS DELETED!!!!!!!!!!!"<<"\n";
-=======
     void copyComponents(const Entity &source,ComponentBase** mgrs, int c){
         std::cout<<"copying...\n";
         for(int i = 0; i < c; i ++){
@@ -73,7 +53,6 @@ public:
 
     ~Entity(){
 //        std::cout<<"ENTITY WAS DELETED!!!!!!!!!!!"<<"\n";
->>>>>>> Improved entity system. Some basic cleanup. Physics test
     }
 };
 struct EntityHasher{
