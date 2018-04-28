@@ -4,19 +4,20 @@
 #include "texture.h"
 #include <unistd.h>
 #include "transform.h"
-#include "system.h"
+#include "programlogic.h"
 #include "iteratorTools.h"
 
 using namespace component;
 
-class TestSystem : public System{
+class RenderLogicTesst : public ProgramLogic
+{
 private:
-    textureCT &TexMgr;
-    transformCT &TransMgr;
+    textureComponents &TexMgr;
+    transformComponents &TransMgr;
     float x;
 public:
-    TestSystem(textureCT &TexMgr, transformCT &TransMgr)
-    :TexMgr(TexMgr),TransMgr(TransMgr)
+    RenderLogicTesst(textureComponents &TexMgr, transformComponents &TransMgr)
+        :TexMgr(TexMgr),TransMgr(TransMgr)
     {
         std::cout<<"Constructing system"<<"\n";
         std::cout<<"Got manager(s) for types: "<<"\n";
@@ -26,14 +27,18 @@ public:
     }
 
 
-    virtual void update(){
+    virtual void update()
+    {
         int i = 0;
-        ITERATE_COMP(TexMgr,it){
+        ITERATE_COMP(TexMgr,it)
+        {
 
             auto *h = it->second.getHead();
-            while(h){
+            while(h)
+            {
                 Node<std::shared_ptr<Transform>> *help = &this->TransMgr.get(it->first);
-                while(help){
+                while(help)
+                {
                     const Transform &trans = *help->getData();
                     float xVal = 16*pow((sin(x)),3)*-1;
                     float yVal = (13*cos(x)-5*cos(2*x)-2*cos(3*x)-cos(4*x))*-1;
@@ -41,7 +46,7 @@ public:
                     Vec2i scale = h->getData()->getPxDimensions(trans.getScale());
 
                     SDL_Rect rect = {pos.x,pos.y,scale.x,scale.y};
-                   // std::cout<<trans.getRotation().z<<"\n";
+                    // std::cout<<trans.getRotation().z<<"\n";
                     SDL_SetRenderDrawColor(Window::getActiveRenderer(),255,0,0,255);
                     SDL_RenderCopyEx(Window::getActiveRenderer(),h->getData()->use(),NULL,&rect,trans.getRotation().z,NULL,SDL_FLIP_NONE);
 

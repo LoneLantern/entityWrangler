@@ -405,12 +405,12 @@
 	<SDL/SDL_opengl.h>
 	<string>
 
-1524848709 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
 	"componentBase.h"
 	"entity.h"
 	<algorithm>
 
-1524848709 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.h
 	"instanceCounted.h"
 	<typeinfo>
 	<vector>
@@ -422,40 +422,39 @@
 1523878248 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\instancecounted.h
 	<cstdint>
 
-1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componenttest.cpp
+1524952351 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componenttest.cpp
 	"component.h"
 	<UnitTest++.h>
 
-1524847648 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
+1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<utility>
 	<boost/functional/hash.hpp>
 	"instanceCounted.h"
 	"list.h"
-	"globalDefines.h"
 	"parser.h"
 	"componentBase.h"
 	"entity.h"
 	<memory>
 
-1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\list.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\list.h
 	"node.h"
 
-1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\node.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\node.h
 	<memory>
 	<typeinfo>
 	"instanceCounted.h"
 	<iostream>
 
-1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\globaldefines.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\globaldefines.h
 	<boost/uuid/uuid.hpp>
 
-1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.h
 	<string>
 	<cstring>
 
-1524848788 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
+1524952438 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
 	"componentBase.h"
 	<boost/uuid/uuid_generators.hpp>
 	<memory>
@@ -464,36 +463,36 @@
 1524647370 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.cpp
 	"Entity.h"
 
-1524851604 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.cpp
 	"font.h"
 	<SDL/SDL.h>
 	<iostream>
 
-1524851283 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.h
 	<SDL/SDL_ttf.h>
 	<unordered_map>
 	"texture.h"
 	<memory>
 
-1524470101 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.h
+1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.h
 	"application.h"
 	<GL/glew.h>
 	<SDL/SDL.h>
 	<SDL/SDL_opengl.h>
 	<SDL/SDL_image.h>
 	"window.h"
-	"types.h"
+	"geometric.h"
 	"instanceCounted.h"
 	"component.h"
 
-1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.h
+1524950769 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.h
 	<GL/glew.h>
 	<SDL/SDL.h>
 	<SDL/SDL_opengl.h>
 	<stdexcept>
-	"types.h"
+	"geometric.h"
 
-1524666194 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\types.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\types.h
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<hashtable.h>
@@ -505,13 +504,13 @@
 	"component.h"
 	<string>
 
-1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\lua.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\lua.h
 	<sol.hpp>
 	<iostream>
 	"globalDefines.h"
 	"entity.h"
 
-1524851576 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
+1524950759 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
 	<iostream>
 	<string>
 	"node.h"
@@ -524,17 +523,16 @@
 	"texture.h"
 	"window.h"
 	"font.h"
-	"testSystem.h"
+	"renderLogictest.h"
 	<UnitTest++.h>
 	"userInput.h"
-	"bulletSystem.h"
+	"bulletLogic.h"
 	"action.h"
 	"texAnim.h"
 
-1523878249 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.h
+1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.h
 	"component.h"
 	<string>
-	"globalDefines.h"
 
 1524652393 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\testsystem.h
 	"component.h"
@@ -544,8 +542,8 @@
 	"system.h"
 	"iteratorTools.h"
 
-1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.h
-	"types.h"
+1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.h
+	"geometric.h"
 	"component.h"
 	<SDL/SDL.h>
 	"window.h"
@@ -558,7 +556,7 @@
 	<algorithm>
 	<iostream>
 
-1523878250 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.h
 	<SDL/SDL.h>
 	<vector>
 	<iostream>
@@ -581,43 +579,43 @@
 	<memory>
 	<string>
 
-1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\parser.cpp
 	"parser.h"
 	<cstring>
 
 1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\system.cpp
 	"system.h"
 
-1523878249 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.cpp
+1524952351 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.cpp
 	"systemCTypes.h"
 
-1524470199 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.cpp
 	"texAnim.h"
 	<boost/filesystem.hpp>
 	<ctime>
 	<iostream>
 
-1524851078 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
 	"texture.h"
 	<iostream>
 
-1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texturetest.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texturetest.cpp
 	<UnitTest++.h>
 	<SDL/SDL.h>
 
 1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.cpp
 	"transform.h"
 
-1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
+1524952508 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
 	"userInput.h"
 	<iostream>
 
-1524218465 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.cpp
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.cpp
 	"window.h"
 	<iostream>
 	<math.h>
 
-1524569841 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\action.h
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\action.h
 	<functional>
 	<tuple>
 
@@ -638,4 +636,40 @@
 1524589945 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\iteratorfilter.h
 
 1524645284 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\iteratortools.h
+
+1524950760 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\gamelogic.cpp
+	"gamelogic.h"
+
+1524950760 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\gamelogic.h
+	"instanceCounted.h"
+	<functional>
+	<vector>
+	<algorithm>
+	<iostream>
+
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\geometric.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<hashtable.h>
+	<boost/functional/hash.hpp>
+	"entity.h"
+
+1524950759 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderlogictest.h
+	"component.h"
+	"texture.h"
+	<unistd.h>
+	"transform.h"
+	"gamelogic.h"
+	"iteratorTools.h"
+
+1524952351 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\bulletlogic.h
+	"gamelogic.h"
+	"entity.h"
+	"texture.h"
+	"component.h"
+	<iostream>
+	<cmath>
+	"iteratorTools.h"
+	"userInput.h"
+	"transform.h"
 

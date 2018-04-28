@@ -6,15 +6,14 @@
 #include <boost/functional/hash.hpp>
 #include "instanceCounted.h"
 #include "list.h"
-#include "globalDefines.h"
 #include "parser.h"
 #include "componentBase.h"
 #include "entity.h"
 #include <memory>
-#define UUID_RENAME Entity
+#define Entity Entity
 #define ITERATE_COMP(mgr, itname) for(auto itname = mgr.begin(),_itend = mgr.end();itname!=_itend;itname++)
 
-namespace COMPONENT_NAMESPACE_NAME
+namespace component
 {
 template <class t>
 class Component : public ComponentBase
@@ -176,7 +175,8 @@ public:
     }
     virtual void clearCorpses()
     {
-        for(auto ent:this->corpses){
+        for(auto ent:this->corpses)
+        {
             this->componentMap.erase(ent);
         }
     }
@@ -184,11 +184,9 @@ public:
     virtual ~Component() = default;
 };
 
-}
-
-namespace component
-{
-typedef Component<std::string> tagCT;
+typedef Component<std::string> tagComponents;
 
 }
+
+
 #endif // COMPONENT_H_INCLUDED

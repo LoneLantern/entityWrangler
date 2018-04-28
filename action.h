@@ -20,18 +20,21 @@ public:
     }
 };*/
 
-class Action{
+class Action
+{
 private:
     std::function<void()> funcStored;
 public:
     template<class F,class...FuncArgs>
-    Action(F&& func,FuncArgs&&...args){
+    Action(F&& func,FuncArgs&&...args)
+    {
         this->funcStored = [func, args...]()
         {
             (func)(args...);
         };
     }
-    void act(){
+    void act()
+    {
         this->funcStored();
     }
 };/*

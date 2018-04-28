@@ -6,7 +6,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include <stdexcept>
-#include "types.h"
+#include "geometric.h"
 
 #define SDL_MAIN int main(int argc, char *argv[])
 #define SDL_MAIN_PARAM int argc, char *argv[]

@@ -1,19 +1,19 @@
 #ifndef MESSAGE_H_INCLUDED
 #define MESSAGE_H_INCLUDED
 
-struct Message{
+struct Mail
+{
     const std::string message;
     const MessageCenter& source;
 };
 
-struct Hook:Message{
 
-};
-
-class MessageCenter{
+class PostOffice
+{
 private:
     std::vector<std::reference_wrapper<Message>> msgStack;
-    virtual void storeMessage(std::string message,const MessageCenter& sender){
+    virtual void storeMessage(std::string message,const MessageCenter& sender)
+    {
 
     }
 public:

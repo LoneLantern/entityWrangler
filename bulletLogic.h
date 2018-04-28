@@ -1,6 +1,6 @@
 #ifndef BULLETSYSTEM_H_INCLUDED
 #define BULLETSYSTEM_H_INCLUDED
-#include "system.h"
+#include "programlogic.h"
 #include "entity.h"
 #include "texture.h"
 #include "component.h"
@@ -9,16 +9,18 @@
 #include <cmath>
 #include "iteratorTools.h"
 #include "userInput.h"
-class BulletSystem:public System
+#include "transform.h"
+
+class BulletLogic:public ProgramLogic
 {
 private:
-    tagCT &TagMgr;
-    transformCT &TransMgr;
+    component::tagComponents &TagMgr;
+    component::transformComponents &TransMgr;
     Transform *playerPos = nullptr;
 
     int run;
 public:
-    BulletSystem(tagCT &TagMgr,transformCT &transMgr)
+    BulletLogic(component::tagComponents &TagMgr,component::transformComponents &transMgr)
         :TagMgr(TagMgr),TransMgr(transMgr),run(0)
     {
         ITERATE_COMP(this->TagMgr,it)
@@ -69,10 +71,12 @@ public:
             float rotation = dotProduct/(dir.Length()*forward.Length());
             rotation = acos(rotation);
             rotation = rotation*180.0f/M_PI;
-            if(dir.x<0.0f){
+            if(dir.x<0.0f)
+            {
                 rotation=360.0f-rotation;
             }
-            if(dir.Length()<0.05f){
+            if(dir.Length()<0.05f)
+            {
                 h.kill();
             }
             trans.setRotation({0.0f,0.0f,rotation});

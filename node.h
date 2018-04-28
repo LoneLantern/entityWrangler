@@ -14,7 +14,7 @@ private:
     Node* prev;
 public:
     Node(const t& data)
-    :data(std::make_shared<t>(data))
+        :data(std::make_shared<t>(data))
     {
         //std::cout<<"Constructing Node<"<<typeid(t).name()<<"> #"<<this->getInstanceCount()<<"\n";
         this->prev = this->next = nullptr;
@@ -43,7 +43,8 @@ public:
         this->prev = prev;
     }
 
-    void printNode(){
+    void printNode()
+    {
         std::cout<<"* "<<*this->data<<"\n";
     }
 

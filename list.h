@@ -51,7 +51,9 @@ public:
             if(!this->head)
             {
                 this->initHead(data);
-            }else{
+            }
+            else
+            {
                 std::cout<<"cought problem but nothing was done @list::addNew\n";
             }
         }
@@ -65,7 +67,8 @@ public:
             last=last->getNext();
             i++;
         }
-        if(last==&*this->tail){
+        if(last==&*this->tail)
+        {
             this->tail = last->getPrev();
         }
         if(last==&*this->head)
@@ -75,20 +78,24 @@ public:
         else delete last;
     }
 
-    void printListContents(){
+    void printListContents()
+    {
         Node<t> *h = &*this->head;
 //        std::cout<<"---List<"<<typeid(t).name()<<"> start---"<<"\n";
-        while(h){
+        while(h)
+        {
             h->printNode();
             h=h->getNext();
         }
- //       std::cout<<"---List end---"<<"\n";
+//       std::cout<<"---List end---"<<"\n";
     }
 
-    ~List(){
-   //     std::cout<<"List was destroyed\n";
+    ~List()
+    {
+        //     std::cout<<"List was destroyed\n";
         Node<t> *h = &*this->head;
-        while(h){
+        while(h)
+        {
             Node<t> *helper = h;
             h=h->getNext();
             if(helper!=&*this->head)

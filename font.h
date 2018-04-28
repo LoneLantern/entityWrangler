@@ -6,7 +6,8 @@
 #include <memory>
 #define FONTRENDER_START 32
 #define FONTRENDER_END 126
-class CharSet{
+class CharSet
+{
 private:
     std::unordered_map<char,std::shared_ptr<Texture>> charMap;
     TTF_Font* assignedFont;
@@ -18,7 +19,8 @@ public:
 
 };
 
-class Font{
+class Font
+{
 private:
     std::unordered_map<uint8_t,std::unique_ptr<CharSet>> fontMap;
     std::string path;

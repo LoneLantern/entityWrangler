@@ -42,5 +42,5 @@ void parse(const char* data,string &out){
 void parse(const char* data,void* whatever){
     whatever = nullptr;
 }
-    static int getFloatPLoc(const char* data){}
-    static int getBeforeFloat(const char* data){}*/
+static int getFloatPLoc(const char* data){}
+static int getBeforeFloat(const char* data){}*/

@@ -34,14 +34,17 @@ struct Vec2f
 {
     float x;
     float y;
-        float Length(){
+    float Length()
+    {
         return sqrt(x * x + y * y);
     }
-    Vec2f Normalize(){
+    Vec2f Normalize()
+    {
         Vec2f vector;
         float length = this->Length();
 
-        if(length != 0){
+        if(length != 0)
+        {
             vector.x = y/length;
             vector.y = y/length;
         }
@@ -56,14 +59,17 @@ struct Vec2i
     int32_t y;
     // Normalizes the vector
     // Returns the length of the vector
-    float Length(){
+    float Length()
+    {
         return sqrt(x * x + y * y);
     }
-    Vec2f Normalize(){
+    Vec2f Normalize()
+    {
         Vec2f vector;
         float length = this->Length();
 
-        if(length != 0){
+        if(length != 0)
+        {
             vector.x = y/length;
             vector.y = y/length;
         }

@@ -1,6 +1,6 @@
 #include "systemCTypes.h"
 
-using namespace COMPONENT_NAMESPACE_NAME;
+using namespace component;
 using namespace std;/*
 template<>
 string stringCT::name = "string";

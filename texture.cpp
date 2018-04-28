@@ -25,13 +25,15 @@ void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename)
 
     /* Get information about texture we want to save */
     st = SDL_QueryTexture(tex, NULL, NULL, &w, &h);
-    if (st != 0) {
+    if (st != 0)
+    {
         SDL_Log("Failed querying texture: %s\n", SDL_GetError());
         goto cleanup;
     }
 
     ren_tex = SDL_CreateTexture(ren, format, SDL_TEXTUREACCESS_TARGET, w, h);
-    if (!ren_tex) {
+    if (!ren_tex)
+    {
         SDL_Log("Failed creating render texture: %s\n", SDL_GetError());
         goto cleanup;
     }
@@ -41,7 +43,8 @@ void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename)
      * can access
      */
     st = SDL_SetRenderTarget(ren, ren_tex);
-    if (st != 0) {
+    if (st != 0)
+    {
         SDL_Log("Failed setting render target: %s\n", SDL_GetError());
         goto cleanup;
     }
@@ -50,34 +53,39 @@ void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename)
     SDL_RenderClear(ren);
 
     st = SDL_RenderCopy(ren, tex, NULL, NULL);
-    if (st != 0) {
+    if (st != 0)
+    {
         SDL_Log("Failed copying texture data: %s\n", SDL_GetError());
         goto cleanup;
     }
 
     /* Create buffer to hold texture data and load it */
     pixels = malloc(w * h * SDL_BYTESPERPIXEL(format));
-    if (!pixels) {
+    if (!pixels)
+    {
         SDL_Log("Failed allocating memory\n");
         goto cleanup;
     }
 
     st = SDL_RenderReadPixels(ren, NULL, format, pixels, w * SDL_BYTESPERPIXEL(format));
-    if (st != 0) {
+    if (st != 0)
+    {
         SDL_Log("Failed reading pixel data: %s\n", SDL_GetError());
         goto cleanup;
     }
 
     /* Copy pixel data over to surface */
     surf = SDL_CreateRGBSurfaceWithFormatFrom(pixels, w, h, SDL_BITSPERPIXEL(format), w * SDL_BYTESPERPIXEL(format), format);
-    if (!surf) {
+    if (!surf)
+    {
         SDL_Log("Failed creating new surface: %s\n", SDL_GetError());
         goto cleanup;
     }
 
     /* Save result to an image */
     st = SDL_SaveBMP(surf, filename);
-    if (st != 0) {
+    if (st != 0)
+    {
         SDL_Log("Failed saving image: %s\n", SDL_GetError());
         goto cleanup;
     }
@@ -119,7 +127,7 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
     std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
 
 //     this->width = Window::px2GLC(surface->w);
-     //this->height = Window::getActiveWindow()->px2GLC(surface->h);
+    //this->height = Window::getActiveWindow()->px2GLC(surface->h);
 
 }
 
@@ -217,7 +225,7 @@ Vec2i Texture::getPxDimensions()
 Vec2i Texture::getPxDimensions(Vec3f scale)
 {
     // std::cout<<"("<<this->dimensions.x<<"|"<<this->dimensions.y<<")"<<"\n";
-     return {Window::gLC2Px({this->dimensions.x*scale.x,0}).x,Window::gLC2Px({0,this->dimensions.y*scale.y}).y};
+    return {Window::gLC2Px({this->dimensions.x*scale.x,0}).x,Window::gLC2Px({0,this->dimensions.y*scale.y}).y};
 }
 
 

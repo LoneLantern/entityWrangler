@@ -3,6 +3,7 @@
 
 namespace
 {
-    TEST(TextureSurfaceTestNormal){
-    }
+TEST(TextureSurfaceTestNormal)
+{
+}
 }

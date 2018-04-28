@@ -6,7 +6,8 @@
 #include <iostream>
 #define ENTITY_ALIVE true
 #define ENTITY_DEAD false
-class Entity{
+class Entity
+{
 private:
     boost::uuids::uuid uuid;
     bool protect = false;
@@ -15,48 +16,62 @@ private:
     friend class ComponentBase;
 public:
     Entity()
-    :uuid(boost::uuids::random_generator()()){
+        :uuid(boost::uuids::random_generator()())
+    {
     }
-    const boost::uuids::uuid &operator ()()const{
+    const boost::uuids::uuid &operator ()()const
+    {
         return this->uuid;
     }
-    bool operator ==(const Entity &othr)const{
+    bool operator ==(const Entity &othr)const
+    {
         return this->uuid==othr.uuid;
     }
 
 
-    void copyComponents(const Entity &source,ComponentBase** mgrs, int c){
+    void copyComponents(const Entity &source,ComponentBase** mgrs, int c)
+    {
         std::cout<<"copying...\n";
-        for(int i = 0; i < c; i ++){
+        for(int i = 0; i < c; i ++)
+        {
             std::cout<<"-";
             mgrs[i]->copyTo(source,*this);
         }
     }
-    void kill(){
-        if(this->protect==false){
+    void kill()
+    {
+        if(this->protect==false)
+        {
             this->status = ENTITY_DEAD;
-            for(ComponentBase* comp:this->attachedComponents){
+            for(ComponentBase* comp:this->attachedComponents)
+            {
                 comp->killEntity(*this);
             }
         }
     }
-    bool getStatus()const{
+    bool getStatus()const
+    {
         return this->status;
     }
-    void setProtection(bool status){
+    void setProtection(bool status)
+    {
         this->protect = status;
     }
 
-    void getProtection(){
+    bool getProtection()
+    {
         return this->protect;
     }
 
-    ~Entity(){
+    ~Entity()
+    {
 //        std::cout<<"ENTITY WAS DELETED!!!!!!!!!!!"<<"\n";
     }
 };
-struct EntityHasher{
-    size_t operator()(const Entity& obj)const{
+struct EntityHasher
+{
+    size_t operator()(const Entity& obj)const
+    {
         return boost::uuids::hash_value((obj)());
     }
 
