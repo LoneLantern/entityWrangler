@@ -14,6 +14,7 @@ void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename);
 class Texture:InstanceCounted<Texture>,public Base
 {
 private:
+    bool openForChanges = false;
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
     const uint32_t R_MASK = 0xff000000;
     const uint32_t G_MASK = 0x00ff0000;
@@ -38,6 +39,18 @@ private:
 public:
     static GLuint SDLSurf2GLTex(SDL_Surface *texture);
     static SDL_Surface surfaceFromData(std::string data);
+
+    void setOpenForChanges(bool state){
+        this->openForChanges = state;
+        if(state=false){
+            this->initFromSDLSurf(this->SDLSurf);
+        }
+    }
+
+    bool isOpenForChanges(bool state){
+        return this->openForChanges;
+    }
+
     Texture(const char* file);
     Texture()
     {
@@ -47,8 +60,9 @@ public:
     Texture(SDL_Surface *surface);
 
     virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0);
-    void copyOnto(const Texture& rhs, Vec2i location, bool changeSize = false)
+    void copyOnto(const Texture& rhs, Vec2i location, bool changeSize = false, bool leaveOpenForChanges = false)
     {
+        this->setOpenForChanges(true);
         uint32_t format;
         int ac;
         int w;
@@ -64,23 +78,27 @@ public:
             w+=wrhs-(w-location.x);
             h+=hrhs-(h-location.y);
         }
+        SDL_Rect originalDim = {
+            0,0,this->SDLSurf->w,this->SDLSurf->h
+        };
+        SDL_Rect otherDim = {
+            location.x,location.y,wrhs,hrhs
+        };
+
+
         SDL_LockSurface(this->SDLSurf);
         SDL_Surface *newSurf = SDL_CreateRGBSurface(0,w,h,32,R_MASK,G_MASK,B_MASK,A_MASK);
 
         SDL_UnlockSurface(this->SDLSurf);
+        SDL_BlitSurface(this->SDLSurf,NULL,newSurf,&originalDim);
 
-        SDL_BlitSurface(this->SDLSurf,NULL,newSurf,&((SDL_Rect)
-        {
-            0,0,this->SDLSurf->w,this->SDLSurf->h
-        }));
-
-        SDL_BlitSurface(rhs.SDLSurf,NULL,newSurf,&((SDL_Rect)
-        {
-            location.x,location.y,wrhs,hrhs
-        }));
+        SDL_BlitSurface(rhs.SDLSurf,NULL,newSurf,&otherDim);
         std::cout<<"initializing blitted texture\n";
-        this->initFromSDLSurf(newSurf);
-
+        if(leaveOpenForChanges==true){
+            return;
+        }
+        this->SDLSurf = newSurf;
+        this->setOpenForChanges(false);
     }
     Vec2f getGLCDimensions();
     virtual Vec2i getPxDimensions();

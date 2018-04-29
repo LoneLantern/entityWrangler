@@ -54,7 +54,6 @@
 		<Unit filename="font.cpp" />
 		<Unit filename="font.h" />
 		<Unit filename="gamelogic.cpp" />
-		<Unit filename="gamelogic.h" />
 		<Unit filename="geometric.h" />
 		<Unit filename="instanceCounted.h" />
 		<Unit filename="iteratorTools.h" />
@@ -66,6 +65,7 @@
 		<Unit filename="parser.cpp" />
 		<Unit filename="parser.h" />
 		<Unit filename="postoffice.h" />
+		<Unit filename="programlogic.h" />
 		<Unit filename="reminder.txt" />
 		<Unit filename="renderLogictest.h" />
 		<Unit filename="systemCTypes.cpp" />

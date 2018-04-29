@@ -38,9 +38,6 @@ public:
     virtual void update()
     {
 
-
-        int i =0;
-//        std::cout<<"bulletSystem";
         ITERATE_COMP(this->TagMgr,it)
         {
             ITERATOR_FILTER_SKIP(it,_itend,(*it->second.getHead()->getData())=="player");
@@ -48,7 +45,7 @@ public:
                 break;
 
             const Entity &h = it->first;
-            const Transform &trans = *this->TransMgr.get(h).getData();
+            Transform &trans = *this->TransMgr.get(h).getData();
             Vec2f offset = {0.0f,0.01f};
             Vec2f dir = {0.0f,0.0f};
             if(playerPos!=nullptr)
@@ -77,7 +74,7 @@ public:
             }
             if(dir.Length()<0.05f)
             {
-                h.kill();
+                ComponentBase::removeGlobal(h);
             }
             trans.setRotation({0.0f,0.0f,rotation});
             Vec2i position = Window::gLC2Px(trans.getPosition2D());

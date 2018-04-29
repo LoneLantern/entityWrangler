@@ -4,14 +4,15 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <memory>
 #include <iostream>
-#define ENTITY_ALIVE true
-#define ENTITY_DEAD false
+#define ENTITY_ERASE_UNPROTECTED 0
+#define ENTITY_ERASE_PROTECTED 1
+
+#define EN
 class Entity
 {
 private:
     boost::uuids::uuid uuid;
-    bool protect = false;
-    bool status = ENTITY_ALIVE;
+    char protection = ENTITY_ERASE_UNPROTECTED;
     std::vector<ComponentBase*> attachedComponents;
     friend class ComponentBase;
 public:
@@ -31,36 +32,20 @@ public:
 
     void copyComponents(const Entity &source,ComponentBase** mgrs, int c)
     {
-        std::cout<<"copying...\n";
         for(int i = 0; i < c; i ++)
         {
-            std::cout<<"-";
             mgrs[i]->copyTo(source,*this);
         }
     }
-    void kill()
-    {
-        if(this->protect==false)
-        {
-            this->status = ENTITY_DEAD;
-            for(ComponentBase* comp:this->attachedComponents)
-            {
-                comp->killEntity(*this);
-            }
-        }
-    }
-    bool getStatus()const
-    {
-        return this->status;
-    }
+
     void setProtection(bool status)
     {
-        this->protect = status;
+        this->protection = status;
     }
 
-    bool getProtection()
+    bool isProtected()const
     {
-        return this->protect;
+        return this->protection;
     }
 
     ~Entity()

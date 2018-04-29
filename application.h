@@ -9,9 +9,9 @@
 class Base
 {
 public:
-    virtual void initSystems(uint32_t flags);
+    virtual void initSystems(uint32_t flags)const;
 
-    virtual void initOGLSystems();
+    virtual void initOGLSystems()const;
 
 };
 

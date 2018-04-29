@@ -157,7 +157,7 @@ int main(SDL_MAIN_PARAM)
     RenderLogicTesst system(TexMgr,TransformMgr);
     TagMgr.addTo(bullet,"bullet");
     TexMgr.addTo(bullet,new TexAnim("./bullet",24));
-    TransformMgr.addTo(bullet,0.24f,0.6f,0.0f);
+    TransformMgr.addTo(bullet);
     TexMgr.addTo(Man,ptr);
     Action testAct(&printLogo);
     testAct.act();
@@ -193,10 +193,30 @@ int main(SDL_MAIN_PARAM)
         font.setSize(80);
         bullet.setProtection(true);
         Texture fontTex = *font.get("This is a test");
+        int step = 0;
+        for(int i = 0;i<60;i++){
+                if((int)((i)/10)!=step){
+                    cout<<"-";
+                    step=(int)((i)/10);
+                }
+                Entity *newEnt = new Entity;
+                //cout<<(*newEnt)()<<"\n";
+                //cout<<"size:"<<bullets.size();
+                ComponentBase* arr[2];
+                arr[1] = &TexMgr;
+                arr[0] = &TagMgr;
+                //TagMgr.addTo(*newEnt,"bullet");
+                //  cout<<*TagMgr[*newEnt].getHead()->getData()<<"\n";
+                //TexMgr.addTo(*newEnt,new TexAnim("./bullet",24));            //cout<<"starting to copy";
+                newEnt->copyComponents(bullet,arr,2);
+                //cout<<"returned\n";
+                TransformMgr.addTo(*newEnt);
+                //cout<<"added\n";
+                //cout<<"pushed\n";
+                conduct = 0.0f;}
         while(appC.isRunning())
         {
             //Hook::call("update",time);
-            Vec3f playerPos = TransformMgr.get(Man).getData()->getPosition();
             Vec3f newPlayerPos;
             appC.startFrame();
             SDL_SetRenderDrawColor(Window::getActiveRenderer(),100,100,100,255);
@@ -263,15 +283,11 @@ int main(SDL_MAIN_PARAM)
                 //cout<<"pushed\n";
                 conduct = 0.0f;
             }
-            SDL_Rect ok;
-            ok.x=10;
-            ok.y=10;
-            ok.w=250;
-            ok.h=30;
+            SDL_Rect fontTest = {30,30,30,100};
+
             SDL_RenderCopy(Window::getActiveRenderer(),
-                           font.get(std::to_string(conduct).c_str())->use(),
-                           NULL,
-                           &ok);
+                           font.get(to_string(time).c_str())->use(),NULL,
+                           &fontTest);
             win.swap();
             SDL_PollEvent(NULL);
             // std::cout<<"VX:\t"<<abs(newPlayerPos.x-playerPos.x)<<"\tVY:\t"<<abs(newPlayerPos.y-playerPos.y)<<"\tTime:\t"<<missionControl::deltaTime()<<"\n";
@@ -279,9 +295,7 @@ int main(SDL_MAIN_PARAM)
             i++;
             conduct += appC.deltaTime();
             time += appC.deltaTime();
-            TexMgr.clearCorpses();
-            TagMgr.clearCorpses();
-            TransformMgr.clearCorpses();
+
         }
     }
     catch(const std::exception &err)

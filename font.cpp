@@ -44,7 +44,7 @@ TTF_Font* CharSet::getFont()
     return this->assignedFont;
 }
 
-Font::Font(const char* path, uint8_t size = 16)
+Font::Font(const char* path, uint8_t size)
 {
     this->path = path;
     this->setSize(size);
@@ -58,14 +58,15 @@ Texture* Font::get(const char character)
 Texture* Font::get(const char* cString)
 {
     std::string str(cString);
-    std::cout<<"String to render:"<<str<<"\n";
+    //std::cout<<"String to render:"<<str<<"\n";
 
     Texture *start = this->get(str[0]);
-    for(int i = 1; i<str.size(); i++)
+    for(unsigned int i = 1; i<str.size(); i++)
     {
-        start->copyOnto(*this->get(str[i]), {i*30,0},true);
-        std::cout<<"I="<<i<<"\n";
+        start->copyOnto(*this->get(str[i]), {i*30,0},true,true);
+        //std::cout<<"I="<<i<<"\n";
     }
+    start->setOpenForChanges(false);
     return start;
 }
 

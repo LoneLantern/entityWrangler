@@ -1,7 +1,7 @@
 #include "application.h"
 
 
-void Base::initSystems(uint32_t flags)
+void Base::initSystems(uint32_t flags)const
 {
     if(SDL_WasInit(flags)&&SDL_InitSubSystem(SDL_INIT_VIDEO)==-1)
     {
@@ -9,7 +9,7 @@ void Base::initSystems(uint32_t flags)
     }
 }
 
-void Base::initOGLSystems()
+void Base::initOGLSystems()const
 {
     GLenum err = glewInit();
     if (GLEW_OK != err)

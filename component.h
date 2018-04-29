@@ -21,35 +21,33 @@ class Component : public ComponentBase
 private:
     //std::vector<std::reference_wrapper<const Entity>> corpses;
 
-    typedef typename std::unordered_map<std::reference_wrapper<const Entity>,List<std::shared_ptr<t>>,EntityHasher,std::equal_to<const Entity>> mapType;
-    mapType componentMap;
+    typedef typename std::unordered_map<std::reference_wrapper<const Entity>,List<std::shared_ptr<t>>,EntityHasher,std::equal_to<const Entity>> entityComponentMapType;
+    entityComponentMapType components;
     //static std::string name;
     template<typename... Args>
     void addList(const Entity &en, const std::shared_ptr<t> &ptr)
     {
 //        std::cout<<".";
-        this->componentMap.emplace(en,ptr);
+        this->components.emplace(en,ptr);
 //        std::cout<<".";
     }
-    virtual void removeEnt(const Entity &en)
-    {
-        cout<<"Removing Corpse from map\n";
-        this->componentMap.erase(en);
-    }
 
+    virtual void removeAllowed(const Entity &en){
+        this->components.erase(en);
+    }
 
 
 protected:
 public:
-    typedef typename mapType::iterator iterator;
+    typedef typename entityComponentMapType::iterator iterator;
 
     virtual void copyTo(const Entity &source,const Entity &target)
     {
-        cout<<"-";
+//        cout<<"-";
         Node<shared_ptr<t>> *h = &this->get(source,0);
         while(h)
         {
-            cout<<"-";
+            //cout<<"-";
             this->addTo(target,h->getData());
             h=h->getNext();
         }
@@ -60,17 +58,17 @@ public:
     }
     Component(const Component & othr)
     {
-        this->componentMap = othr.componentMap;
+        this->components = othr.components;
     }
 
-    List<std::shared_ptr<t>>& operator[](const Entity &en)
+    List<std::shared_ptr<t>>& operator[](const Entity &en)const
     {
-        return this->componentMap[en];
+        return this->components[en];
     }
 
     List<std::shared_ptr<t>>& getList(const Entity &en)
     {
-        return this->componentMap.at(en);
+        return this->components.at(en);
     }
     template <typename Arg, typename... Args>
     static void doPrint(std::ostream& out, Arg&& arg, Args&&... args)
@@ -82,21 +80,16 @@ public:
     template<typename... Args>
     void addTo(const Entity &en, Args...args)
     {
-        /*  std::cout<<"Variadic was called with (";
-          Component::doPrint(std::cout,args...);
-          std::cout<<")\n";*/
         this->addTo(en,std::make_shared<t>(std::forward<Args>(args)...));
     }
 
     template < typename U, typename std::enable_if< std::is_base_of<t, U>::value, U>::type* = nullptr >
     void addTo( const Entity &en,U* ptr)
     {
-        //   std::cout<<"Pointer was called\n";
         this->addTo(en,shared_ptr<t>(ptr));
     }
     void addTo(const Entity &en,const std::shared_ptr<t> ptr)
     {
-        //   std::cout<<"Shared was called\n";
         try
         {
             List<std::shared_ptr<t>> *list = &this->getList(en);
@@ -104,13 +97,11 @@ public:
         }
         catch(std::out_of_range)
         {
-//            cout<<"adding list";
             this->addList(en,ptr);
         }
-        this->registerToEntity(en);
     }
     template<typename... Args>
-    static int addByType(const Entity &en, Args...args)
+    static void addByType(const Entity &en, Args...args)
     {
         Component<t> *compType = NULL;
         try
@@ -139,12 +130,6 @@ public:
             start = start->getNext();
             i++;
         }
-        /*if(en.getStatus()==ENTITY_DEAD)
-        {
-            cout<<"Putting corpse on the pile";
-            this->corpses.push_back(en);
-            cout<<"-->done\n";
-        }*/
         return *start;
     }
 
@@ -155,31 +140,24 @@ public:
 
     iterator begin()
     {
-        return this->componentMap.begin();
+        return this->components.begin();
     }
 
 
     iterator end()
     {
-        return this->componentMap.end();
+        return this->components.end();
     }
 
-    void printTableContents()
+    void printTableContents()const
     {
-        for(auto begin = this->componentMap.begin(), end = this->componentMap.end();
+        for(auto begin = this->components.begin(), end = this->components.end();
                 begin!=end; begin++)
         {
-//            std::cout<<"Entity "<<begin->first()<<" contains:\n";
             begin->second.printListContents();
         }
     }
-    virtual void clearCorpses()
-    {
-        for(auto ent:this->corpses)
-        {
-            this->componentMap.erase(ent);
-        }
-    }
+
 
     virtual ~Component() = default;
 };

@@ -33,7 +33,7 @@ public:
             (func)(args...);
         };
     }
-    void act()
+    void act() const
     {
         this->funcStored();
     }

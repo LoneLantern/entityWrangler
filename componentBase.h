@@ -15,21 +15,19 @@ private:
     bool enabled;
     const std::type_info& type;
     int id;
-    static std::vector<std::reference_wrapper<ComponentBase>> componentList;
+    static std::vector<std::reference_wrapper<ComponentBase>> instances;
     void registerSelf()
     {
-        ComponentBase::componentList.push_back(std::ref(*this));
-        id=ComponentBase::componentList.size()-1;
+        ComponentBase::instances.push_back(std::ref(*this));
+        id=ComponentBase::instances.size()-1;
     }
     void unregisterSelf()
     {
-        ComponentBase::componentList.erase(ComponentBase::componentList.begin()+this->id);
+        ComponentBase::instances.erase(ComponentBase::instances.begin()+this->id);
     }
 
 protected:
-    void registerToEntity(const Entity &target);
-    std::vector<std::reference_wrapper<const Entity>> corpses;
-
+    virtual void removeAllowed(const Entity &en) = 0;
 public:
     virtual void copyTo(const Entity &source,const Entity &target) = 0;
 
@@ -42,7 +40,7 @@ public:
 
     static const std::vector<std::reference_wrapper<ComponentBase>>& getComponentList()
     {
-        return ComponentBase::componentList;
+        return ComponentBase::instances;
     }
 
     std::size_t operator()(const ComponentBase& k) const
@@ -68,13 +66,14 @@ public:
     template<class t>
     static ComponentBase &getComponent()
     {
-        for(ComponentBase& component : ComponentBase::componentList)
+        for(ComponentBase& component : ComponentBase::instances)
         {
             if(typeid(t)==component.getType())
             {
                 return component;
             }
         }
+        throw std::out_of_range("Component could not be located");
     }
     /*    template <class t>
         static ComponentBase getComponentTable(){
@@ -89,9 +88,13 @@ public:
             }
         }*/
 
-    void killEntity(const Entity &en);
+    virtual void remove(const Entity &target);
 
-    virtual void clearCorpses() = 0;
+    static void removeGlobal(const Entity &target){
+        for(ComponentBase &base:ComponentBase::instances){
+            base.remove(target);
+        }
+    }
 
     virtual ~ComponentBase()
     {

@@ -29,7 +29,6 @@ public:
 
     virtual void update()
     {
-        int i = 0;
         ITERATE_COMP(TexMgr,it)
         {
 
@@ -39,9 +38,7 @@ public:
                 Node<std::shared_ptr<Transform>> *help = &this->TransMgr.get(it->first);
                 while(help)
                 {
-                    const Transform &trans = *help->getData();
-                    float xVal = 16*pow((sin(x)),3)*-1;
-                    float yVal = (13*cos(x)-5*cos(2*x)-2*cos(3*x)-cos(4*x))*-1;
+                    Transform &trans = *help->getData();
                     Vec2i pos = Window::gLC2Px({trans.getPosition().x,trans.getPosition().y});
                     Vec2i scale = h->getData()->getPxDimensions(trans.getScale());
 
@@ -55,7 +52,9 @@ public:
                     h=h->getNext();
                     x+=0.01f;
                     help=help->getNext();
-
+                    if(rect.x<0){
+                        std::cout<<"Entity outside screen: ("<<trans.getPosition2D().x<<"|"<<trans.getPosition2D().y<<")\n";
+                    }
                 }
             }
         }

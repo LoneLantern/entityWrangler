@@ -24,7 +24,7 @@ public:
         return this->downKeys;
     }
 
-    bool operator()(SDL_Event *event)
+    void operator()(SDL_Event *event)
     {
         switch(event->type)
         {
