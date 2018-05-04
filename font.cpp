@@ -12,7 +12,7 @@ static void initSystems()
     {
         throw std::runtime_error("TTF_Init Err");
     }
-}
+}/*
 CharSet::CharSet(TTF_Font *font)
     :assignedFont(font)
 {
@@ -27,14 +27,14 @@ CharSet::CharSet(TTF_Font *font)
          stat+=std::to_string((int)c);
          stat+=".bmp";
          SDL_SaveBMP(character,stat.c_str());*/
-        std::cout<<SDL_GetError()<<TTF_GetError()<<"\n";
+      /*  std::cout<<SDL_GetError()<<TTF_GetError()<<"\n";
         this->charMap.insert(std::pair<char,std::shared_ptr<Texture>>(c,std::make_shared<Texture>(character)));
     }
 }/*
 Texture* CharSet::get(const char character){
     return &*this->charMap.at(character);
 }*/
-
+/*
 std::shared_ptr<Texture> CharSet::get(const char character)
 {
     return this->charMap.at(character);
@@ -42,19 +42,17 @@ std::shared_ptr<Texture> CharSet::get(const char character)
 TTF_Font* CharSet::getFont()
 {
     return this->assignedFont;
+}*/
+Font::Font(const char* path, uint8_t size, int r,int g,int b){
+    this->font = FC_CreateFont();
+    FC_LoadFont(font, Window::getActiveRenderer(), path, size, FC_MakeColor(r,g,b,255), TTF_STYLE_NORMAL);
 }
-
-Font::Font(const char* path, uint8_t size)
+void Font::draw(const char* text, int x,int y)
 {
-    this->path = path;
-    this->setSize(size);
-}
+    FC_Draw(this->font,Window::getActiveRenderer(),x,y,text);
+    //FC_Draw(font, renderer, 0, 0, "This is %s.\n It works.", "example text");
+}/*
 
-Texture* Font::get(const char character)
-{
-    std::cout<<"Character to render: "<<character<<"\n";
-    return &*this->fontMap.at(this->curSize)->get(character);
-}
 Texture* Font::get(const char* cString)
 {
     std::string str(cString);
@@ -75,6 +73,6 @@ void Font::setSize(uint8_t size)
     this->curSize = size;
     TTF_Font *font = TTF_OpenFont(this->path.c_str(),size);
     this->fontMap.emplace(this->curSize,std::make_unique<CharSet>(font));
-}
+}*/
 
 

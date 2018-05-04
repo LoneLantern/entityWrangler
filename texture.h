@@ -15,17 +15,11 @@ class Texture:InstanceCounted<Texture>,public Base
 {
 private:
     bool openForChanges = false;
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-    const uint32_t R_MASK = 0xff000000;
-    const uint32_t G_MASK = 0x00ff0000;
-    const uint32_t B_MASK = 0x0000ff00;
-    const uint32_t A_MASK = 0x000000ff;
-#else
-    const uint32_t R_MASK = 0x000000ff;
-    const uint32_t G_MASK = 0x0000ff00;
-    const uint32_t B_MASK = 0x00ff0000;
-    const uint32_t A_MASK = 0xff000000;
-#endif
+    static const uint32_t R_MASK;
+    static const uint32_t G_MASK;
+    static const uint32_t B_MASK;
+    static const uint32_t A_MASK;
+    static Texture nullTex;
     SDL_Texture *SDLTex;
     SDL_Surface *SDLSurf;
     GLuint GLTex;
@@ -42,12 +36,13 @@ public:
 
     void setOpenForChanges(bool state){
         this->openForChanges = state;
-        if(state=false){
+        if(state==false){
             this->initFromSDLSurf(this->SDLSurf);
+//            std::cout<<"Closed texture...\n";
         }
     }
 
-    bool isOpenForChanges(bool state){
+    bool isOpenForChanges(){
         return this->openForChanges;
     }
 
@@ -85,19 +80,21 @@ public:
             location.x,location.y,wrhs,hrhs
         };
 
-
         SDL_LockSurface(this->SDLSurf);
         SDL_Surface *newSurf = SDL_CreateRGBSurface(0,w,h,32,R_MASK,G_MASK,B_MASK,A_MASK);
+        SDL_SetSurfaceBlendMode(newSurf,SDL_BLENDMODE_NONE);
 
         SDL_UnlockSurface(this->SDLSurf);
         SDL_BlitSurface(this->SDLSurf,NULL,newSurf,&originalDim);
 
         SDL_BlitSurface(rhs.SDLSurf,NULL,newSurf,&otherDim);
-        std::cout<<"initializing blitted texture\n";
+//        std::cout<<"initializing blitted texture\n";
+        SDL_FreeSurface(this->SDLSurf);
+        this->SDLSurf = newSurf;
+
         if(leaveOpenForChanges==true){
             return;
         }
-        this->SDLSurf = newSurf;
         this->setOpenForChanges(false);
     }
     Vec2f getGLCDimensions();

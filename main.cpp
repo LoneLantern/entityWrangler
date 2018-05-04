@@ -135,7 +135,7 @@ int main(SDL_MAIN_PARAM)
                                  sol::constructors< Texture(const char*)>(),
                                  "use",&Texture::use);
     */
-    CharSet characterSet(font);
+//    CharSet characterSet(font);
     enid Man;
     enid TestEnt;
     Entity bullet;
@@ -190,16 +190,17 @@ int main(SDL_MAIN_PARAM)
         float conduct = 0.0f;
         std::cout<<"TRYING TO USE FONT\n";
         Font font("./fonts/RobotoCondensed-Light.ttf");
-        font.setSize(80);
         bullet.setProtection(true);
-        Texture fontTex = *font.get("This is a test");
+//        Texture fontTex = *font.get("This is a test");
         int step = 0;
+        int bulletC = 0;
+        Entity *newEnt;
         for(int i = 0;i<60;i++){
                 if((int)((i)/10)!=step){
                     cout<<"-";
                     step=(int)((i)/10);
                 }
-                Entity *newEnt = new Entity;
+                newEnt = new Entity;
                 //cout<<(*newEnt)()<<"\n";
                 //cout<<"size:"<<bullets.size();
                 ComponentBase* arr[2];
@@ -210,21 +211,31 @@ int main(SDL_MAIN_PARAM)
                 //TexMgr.addTo(*newEnt,new TexAnim("./bullet",24));            //cout<<"starting to copy";
                 newEnt->copyComponents(bullet,arr,2);
                 //cout<<"returned\n";
+                cout<<"adding trans to bullet...\n";
                 TransformMgr.addTo(*newEnt);
                 //cout<<"added\n";
                 //cout<<"pushed\n";
-                conduct = 0.0f;}
+                conduct = 0.0f;
+                bulletC++;
+                std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+                }
         while(appC.isRunning())
         {
+                std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+
             //Hook::call("update",time);
             Vec3f newPlayerPos;
             appC.startFrame();
             SDL_SetRenderDrawColor(Window::getActiveRenderer(),100,100,100,255);
             SDL_RenderClear(Window::getActiveRenderer());
+            std::cout<<"Check suspect"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+
             for(ProgramLogic& sys:ProgramLogic::getRegister())
             {
                 sys.update();
             }
+                                    std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+
             if(appC.input.keyIsDown(SDLK_a))
             {
                 Vec3f pos = TransformMgr.get(Man).getData()->getPosition();
@@ -238,6 +249,7 @@ int main(SDL_MAIN_PARAM)
                 TransformMgr.get(Man).getData()->setPosition({pos.x-2*missionControl::deltaTime(),pos.y,pos.z});
                 //   cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
             }
+                std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             if(appC.input.keyIsDown(SDLK_w))
             {
@@ -265,7 +277,9 @@ int main(SDL_MAIN_PARAM)
                 // cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
             }
             newPlayerPos = TransformMgr.get(Man).getData()->getPosition();
-            if(conduct>0.08f)
+                            std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+
+            if(conduct>0.01f)
             {
                 Entity *newEnt = new Entity;
                 //cout<<(*newEnt)()<<"\n";
@@ -282,12 +296,12 @@ int main(SDL_MAIN_PARAM)
                 //cout<<"added\n";
                 //cout<<"pushed\n";
                 conduct = 0.0f;
-            }
-            SDL_Rect fontTest = {30,30,30,100};
+                bulletC++;
 
-            SDL_RenderCopy(Window::getActiveRenderer(),
-                           font.get(to_string(time).c_str())->use(),NULL,
-                           &fontTest);
+            }
+                            std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
+
+            //font.draw(to_string(bulletC).c_str(),30,30);
             win.swap();
             SDL_PollEvent(NULL);
             // std::cout<<"VX:\t"<<abs(newPlayerPos.x-playerPos.x)<<"\tVY:\t"<<abs(newPlayerPos.y-playerPos.y)<<"\tTime:\t"<<missionControl::deltaTime()<<"\n";

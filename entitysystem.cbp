@@ -40,6 +40,8 @@
 		<Linker>
 			<Add option="-pg -lgmon" />
 		</Linker>
+		<Unit filename="SDL_FontCache.cpp" />
+		<Unit filename="SDL_FontCache.h" />
 		<Unit filename="action.h" />
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
@@ -68,6 +70,7 @@
 		<Unit filename="programlogic.h" />
 		<Unit filename="reminder.txt" />
 		<Unit filename="renderLogictest.h" />
+		<Unit filename="renderer.h" />
 		<Unit filename="systemCTypes.cpp" />
 		<Unit filename="systemCTypes.h" />
 		<Unit filename="texAnim.cpp" />

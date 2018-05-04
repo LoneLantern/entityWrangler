@@ -8,6 +8,19 @@
 using namespace component;
 using namespace std;
 
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+    const uint32_t Texture::R_MASK = 0xff000000;
+    const uint32_t Texture::G_MASK = 0x00ff0000;
+    const uint32_t Texture::B_MASK = 0x0000ff00;
+    const uint32_t Texture::A_MASK = 0x000000ff;
+#else
+    const uint32_t Texture::R_MASK = 0x000000ff;
+    const uint32_t Texture::G_MASK = 0x0000ff00;
+    const uint32_t Texture::B_MASK = 0x00ff0000;
+    const uint32_t Texture::A_MASK = 0xff000000;
+#endif
+//Texture Texture::nullTex("./demo.jpg");
+
 void save_texture(SDL_Renderer *ren, SDL_Texture *tex, const char *filename)
 {
     SDL_Texture *ren_tex;
@@ -106,11 +119,8 @@ void Texture::initSDLImg()
 }
 void Texture::initFromSDLSurf(SDL_Surface *surface)
 {
-    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->SDLSurf = surface;
-    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->initDimensions(surface);
-    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
 
     if(Window::getActiveRenderer()!=nullptr&&Window::getActiveRenderer()!=NULL)
     {
@@ -122,9 +132,9 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
 
     }
     else this->SDLTex = nullptr;
-    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
+  //  std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
     this->GLTex = this->SDLSurf2GLTex(surface);
-    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
+//    std::cout<<"("<<surface->w<<"|"<<surface->h<<"|"<<surface->pitch/surface->w<<")\n";
 
 //     this->width = Window::px2GLC(surface->w);
     //this->height = Window::getActiveWindow()->px2GLC(surface->h);
@@ -135,7 +145,7 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
 
 void Texture::initDimensions(SDL_Surface *surface)
 {
-    cout<<"tex:" <<surface->w<<" | "<<surface->h<<" \n";
+//    cout<<"tex:" <<surface->w<<" | "<<surface->h<<" \n";
     this->dimensions.x = Window::px2GLC({surface->w,0}).x;
     this->dimensions.y = Window::px2GLC({0,surface->h}).y;
 
@@ -199,6 +209,8 @@ Texture::Texture(SDL_Surface *texture)
 
 SDL_Texture* Texture::use(GLenum channel)
 {
+    /*if(!this->isOpenForChanges())
+        return Texture::nullTex.use(channel);*/
 //    std::cout<<"Texture use called\n";
     if(Window::getActiveRenderer()==nullptr)
     {

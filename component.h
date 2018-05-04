@@ -158,7 +158,9 @@ public:
         }
     }
 
-
+    int getNumberOfEnts(){
+        return this->components.size();
+    }
     virtual ~Component() = default;
 };
 

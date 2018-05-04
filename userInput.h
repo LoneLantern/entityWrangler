@@ -71,7 +71,6 @@ public:
     void changeRunningState(bool state)
     {
         this->running = state;
-
     }
     bool threadStatus()
     {

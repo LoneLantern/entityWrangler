@@ -3,9 +3,10 @@
 #include <SDL/SDL_ttf.h>
 #include <unordered_map>
 #include "texture.h"
+#include "SDL_FontCache.h"
 #include <memory>
 #define FONTRENDER_START 32
-#define FONTRENDER_END 126
+#define FONTRENDER_END 126/*
 class CharSet
 {
 private:
@@ -17,20 +18,17 @@ public:
     std::shared_ptr<Texture> get(const char character);
     TTF_Font* getFont();
 
-};
+};*/
 
 class Font
 {
 private:
-    std::unordered_map<uint8_t,std::unique_ptr<CharSet>> fontMap;
-    std::string path;
-    uint8_t curSize;
+    FC_Font *font;
 public:
-    Font(const char* path, uint8_t size = 16);
+    Font(const char* path, uint8_t size = 16, int r=255,int g=255,int b=255);
 
-    Texture* get(const char character);
-    Texture* get(const char* string);
-    void setSize(uint8_t size);
+    void draw(const char* text,int x,int y);
+    //void setSize(uint8_t size);
 };
 
 #endif // FONT_H_INCLUDED

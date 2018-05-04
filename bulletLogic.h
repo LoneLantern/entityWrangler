@@ -43,7 +43,6 @@ public:
             ITERATOR_FILTER_SKIP(it,_itend,(*it->second.getHead()->getData())=="player");
             if(it==_itend)
                 break;
-
             const Entity &h = it->first;
             Transform &trans = *this->TransMgr.get(h).getData();
             Vec2f offset = {0.0f,0.01f};
@@ -83,7 +82,7 @@ public:
 
             SDL_RenderDrawLine(Window::getActiveRenderer(),position.x,position.y,playerPosition.x,playerPosition.y);
             //cout<<trans.getPosition().x<<"|"<<trans.getPosition().y<<"|"<<trans.getPosition().z<<"\n";
-            //std::cout<<"|";
+            //std::cout<<"|";*/
         }
         //cout<<i<<"\n";
         this->run++;

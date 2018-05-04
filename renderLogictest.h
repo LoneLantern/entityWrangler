@@ -52,9 +52,6 @@ public:
                     h=h->getNext();
                     x+=0.01f;
                     help=help->getNext();
-                    if(rect.x<0){
-                        std::cout<<"Entity outside screen: ("<<trans.getPosition2D().x<<"|"<<trans.getPosition2D().y<<")\n";
-                    }
                 }
             }
         }
