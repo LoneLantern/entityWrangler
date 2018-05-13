@@ -1,9 +1,12 @@
 #include "window.h"
 #include <iostream>
 #include <math.h>
+#include "renderer.h"
+#include "rendererSDL.h"
+
 using namespace std;
 Window*     Window::activeWindow    =   nullptr;
-SDL_Renderer* Window::activeRenderer = nullptr;
+Renderer* Window::activeRenderer = nullptr;
 
 
 Vec2f Window::px2GLC(Vec2i px)
@@ -59,7 +62,7 @@ void Window::initWindow(const char* name,int x,int y,int w,int h,int flags)
     }
     else
     {
-        this->renderer = SDL_CreateRenderer(this->window,-1,SDL_RENDERER_ACCELERATED);
+        this->renderer = new RendererSDL();
         if(!this->renderer)
             throw std::runtime_error(SDL_GetError());
     }
@@ -98,7 +101,7 @@ SDL_Window *Window::getWindow()
     return this->window;
 }
 
-SDL_Renderer *Window::getRenderer()
+Renderer *Window::getRenderer()
 {
     /*if(this->renderer==nullptr)
     {
@@ -123,7 +126,7 @@ Window &Window::getActiveWindow()
     return *Window::activeWindow;
 }
 
-SDL_Renderer *Window::getActiveRenderer()
+Renderer *Window::getActiveRenderer()
 {
     return Window::activeRenderer;
 }
@@ -131,14 +134,7 @@ SDL_Renderer *Window::getActiveRenderer()
 
 void Window::swap()
 {
-    if(this->renderer)
-    {
-        SDL_RenderPresent(this->renderer);
-    }
-    else
-    {
-        SDL_GL_SwapWindow(this->window);
-    }
+    this->renderer->show();
 }
 
 

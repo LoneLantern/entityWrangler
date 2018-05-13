@@ -7,6 +7,7 @@
 #include <SDL/SDL_opengl.h>
 #include <stdexcept>
 #include "geometric.h"
+#include "renderer.h"
 
 #define SDL_MAIN int main(int argc, char *argv[])
 #define SDL_MAIN_PARAM int argc, char *argv[]
@@ -15,13 +16,13 @@ using namespace SYSTEM_NAMESPACE;
 class Window
 {
 private:
-    SDL_Renderer *renderer;
+    Renderer *renderer;
     SDL_Window *window;
     SDL_GLContext context;
     SDL_Rect dimensions;
 
     static Window *activeWindow;
-    static SDL_Renderer *activeRenderer;
+    static Renderer *activeRenderer;
 
     void initDimensions(int x,int y,int w,int h);
 
@@ -37,7 +38,7 @@ public:
 
     SDL_Window *getWindow();
 
-    SDL_Renderer *getRenderer();
+    Renderer *getRenderer();
 
     SDL_GLContext getContext();
 
@@ -47,7 +48,7 @@ public:
     {
         return this->window;
     };
-    explicit operator SDL_Renderer* ()
+    explicit operator Renderer* ()
     {
         return this->renderer;
     };
@@ -59,7 +60,7 @@ public:
 
     static Window &getActiveWindow();
 
-    static SDL_Renderer *getActiveRenderer();
+    static Renderer *getActiveRenderer();
     SDL_Rect getDimensions();
     ~Window();
 

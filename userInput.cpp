@@ -28,7 +28,7 @@ missionControl::missionControl()
     this->running = this->threadRunning = true;
     this->thread = SDL_CreateThread(missionControlPrimaryRoutine,"missionControlPrimaryRoutine",(void*) this);
     missionControl::cur = this;
-            this->startFrame();
+    this->startFrame();
 
 }
 

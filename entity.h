@@ -50,7 +50,8 @@ public:
 
     ~Entity()
     {
-//        std::cout<<"ENTITY WAS DELETED!!!!!!!!!!!"<<"\n";
+        std::cout<<"ENTITY WAS DELETED!!!!!!!!!!!"<<"\n";
+        ComponentBase::removeGlobal(*this);
     }
 };
 struct EntityHasher

@@ -5,7 +5,6 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_image.h>
-#include "window.h"
 #include "geometric.h"
 #include "instanceCounted.h"
 #include "component.h"
@@ -54,8 +53,8 @@ public:
     }
     Texture(SDL_Surface *surface);
 
-    virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0);
-    void copyOnto(const Texture& rhs, Vec2i location, bool changeSize = false, bool leaveOpenForChanges = false)
+    virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0) const;
+    void copyOnto(const Texture& rhs, SYSTEM_NAMESPACE::Vec2i location, bool changeSize = false, bool leaveOpenForChanges = false)
     {
         this->setOpenForChanges(true);
         uint32_t format;
@@ -97,9 +96,9 @@ public:
         }
         this->setOpenForChanges(false);
     }
-    Vec2f getGLCDimensions();
-    virtual Vec2i getPxDimensions();
-    virtual Vec2i getPxDimensions(Vec3f scale);
+    SYSTEM_NAMESPACE::Vec2f getGLCDimensions();
+    virtual SYSTEM_NAMESPACE::Vec2i getPxDimensions();
+    virtual SYSTEM_NAMESPACE::Vec2i getPxDimensions(SYSTEM_NAMESPACE::Vec3f scale);
 
     virtual ~Texture();
 

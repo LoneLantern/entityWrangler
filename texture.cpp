@@ -1,7 +1,7 @@
 #include "texture.h"
 ///......Private
 #include <iostream>
-
+#include "window.h"
 
 
 
@@ -207,7 +207,7 @@ Texture::Texture(SDL_Surface *texture)
 
 
 
-SDL_Texture* Texture::use(GLenum channel)
+SDL_Texture* Texture::use(GLenum channel)const
 {
     /*if(!this->isOpenForChanges())
         return Texture::nullTex.use(channel);*/

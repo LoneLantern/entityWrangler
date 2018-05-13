@@ -6,7 +6,9 @@
 #include <hashtable.h>
 #include <boost/functional/hash.hpp>
 #include "entity.h"
+#include <SDL/SDL.h>
 #define SYSTEM_NAMESPACE newSys
+
 
 
 typedef Entity enid;
@@ -20,7 +22,16 @@ struct Rectangle
     float z;
     float w;
     float h;
+    operator SDL_Rect() const{
+        SDL_Rect converted;
+        converted.x = this->x;
+        converted.y = this->y;
+        converted.w = this->w;
+        converted.h = this->h;
+        return converted;
+    }
 };
+
 
 struct Tetragon
 {

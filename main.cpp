@@ -221,20 +221,17 @@ int main(SDL_MAIN_PARAM)
                 }
         while(appC.isRunning())
         {
-                std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             //Hook::call("update",time);
             Vec3f newPlayerPos;
             appC.startFrame();
             SDL_SetRenderDrawColor(Window::getActiveRenderer(),100,100,100,255);
             SDL_RenderClear(Window::getActiveRenderer());
-            std::cout<<"Check suspect"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             for(ProgramLogic& sys:ProgramLogic::getRegister())
             {
                 sys.update();
             }
-                                    std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             if(appC.input.keyIsDown(SDLK_a))
             {
@@ -249,7 +246,6 @@ int main(SDL_MAIN_PARAM)
                 TransformMgr.get(Man).getData()->setPosition({pos.x-2*missionControl::deltaTime(),pos.y,pos.z});
                 //   cout<<pos.x<<"|"<<pos.y<<"|"<<pos.z<<"\n";
             }
-                std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             if(appC.input.keyIsDown(SDLK_w))
             {
@@ -277,7 +273,6 @@ int main(SDL_MAIN_PARAM)
                 // cout<<scale.x<<"|"<<scale.y<<"|"<<scale.z<<"\n";
             }
             newPlayerPos = TransformMgr.get(Man).getData()->getPosition();
-                            std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             if(conduct>0.01f)
             {
@@ -299,7 +294,6 @@ int main(SDL_MAIN_PARAM)
                 bulletC++;
 
             }
-                            std::cout<<"Check"<<TransformMgr.get(*newEnt,0).getData()->getPosition().x;
 
             //font.draw(to_string(bulletC).c_str(),30,30);
             win.swap();

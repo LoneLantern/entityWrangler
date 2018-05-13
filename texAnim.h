@@ -22,8 +22,8 @@ public:
 
     SDL_Texture* use(GLenum channel = GL_TEXTURE0);
     Texture* get();
-    virtual Vec2i getPxDimensions();
-    virtual Vec2i getPxDimensions(Vec3f scale);
+    virtual SYSTEM_NAMESPACE::Vec2i getPxDimensions();
+    virtual SYSTEM_NAMESPACE::Vec2i getPxDimensions(SYSTEM_NAMESPACE::Vec3f scale);
 };
 
 

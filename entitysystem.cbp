@@ -42,10 +42,12 @@
 		</Linker>
 		<Unit filename="SDL_FontCache.cpp" />
 		<Unit filename="SDL_FontCache.h" />
+		<Unit filename="aabb.h" />
 		<Unit filename="action.h" />
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
 		<Unit filename="bulletLogic.h" />
+		<Unit filename="collidable.h" />
 		<Unit filename="component.h" />
 		<Unit filename="componentBase.cpp" />
 		<Unit filename="componentBase.h" />
@@ -71,6 +73,8 @@
 		<Unit filename="reminder.txt" />
 		<Unit filename="renderLogictest.h" />
 		<Unit filename="renderer.h" />
+		<Unit filename="rendererSDL.cpp" />
+		<Unit filename="rendererSDL.h" />
 		<Unit filename="systemCTypes.cpp" />
 		<Unit filename="systemCTypes.h" />
 		<Unit filename="texAnim.cpp" />

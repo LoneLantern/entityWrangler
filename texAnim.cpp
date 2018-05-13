@@ -58,12 +58,12 @@ SDL_Texture* TexAnim::use(GLenum channel)
     return this->get()->use(channel);
 }
 
-Vec2i TexAnim::getPxDimensions()
+SYSTEM_NAMESPACE::Vec2i TexAnim::getPxDimensions()
 {
     return this->get()->getPxDimensions();
 }
 
-Vec2i TexAnim::getPxDimensions(Vec3f scale)
+SYSTEM_NAMESPACE::Vec2i TexAnim::getPxDimensions(SYSTEM_NAMESPACE::Vec3f scale)
 {
     return this->get()->getPxDimensions(scale);
 }

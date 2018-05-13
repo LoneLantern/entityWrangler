@@ -426,7 +426,7 @@
 	"component.h"
 	<UnitTest++.h>
 
-1525254200 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
+1525691111 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<utility>
@@ -454,7 +454,7 @@
 	<string>
 	<cstring>
 
-1524998769 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
+1525437149 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
 	"componentBase.h"
 	<boost/uuid/uuid_generators.hpp>
 	<memory>
@@ -463,9 +463,10 @@
 1524647370 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.cpp
 	"Entity.h"
 
-1525422856 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.cpp
+1526229624 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.cpp
 	"font.h"
 	<SDL/SDL.h>
+	"window.h"
 	<iostream>
 
 1525422790 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\font.h
@@ -475,23 +476,23 @@
 	"SDL_FontCache.h"
 	<memory>
 
-1525419005 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.h
+1526228517 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.h
 	"application.h"
 	<GL/glew.h>
 	<SDL/SDL.h>
 	<SDL/SDL_opengl.h>
 	<SDL/SDL_image.h>
-	"window.h"
 	"geometric.h"
 	"instanceCounted.h"
 	"component.h"
 
-1524950769 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.h
+1526228847 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\window.h
 	<GL/glew.h>
 	<SDL/SDL.h>
 	<SDL/SDL_opengl.h>
 	<stdexcept>
 	"geometric.h"
+	"renderer.h"
 
 1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\types.h
 	<boost/uuid/uuid.hpp>
@@ -511,7 +512,7 @@
 	"globalDefines.h"
 	"entity.h"
 
-1525424920 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
+1525436798 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
 	<iostream>
 	<string>
 	"node.h"
@@ -574,7 +575,7 @@
 	"iteratorTools.h"
 	"userInput.h"
 
-1524470115 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.h
+1526226979 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.h
 	"texture.h"
 	<vector>
 	<memory>
@@ -590,15 +591,16 @@
 1524952351 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.cpp
 	"systemCTypes.h"
 
-1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.cpp
+1526228659 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.cpp
 	"texAnim.h"
 	<boost/filesystem.hpp>
 	<ctime>
 	<iostream>
 
-1525385785 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
+1526228529 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
 	"texture.h"
 	<iostream>
+	"window.h"
 
 1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texturetest.cpp
 	<UnitTest++.h>
@@ -607,7 +609,7 @@
 1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.cpp
 	"transform.h"
 
-1525425392 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
+1525436669 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
 	"userInput.h"
 	<iostream>
 
@@ -648,12 +650,13 @@
 	<algorithm>
 	<iostream>
 
-1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\geometric.h
+1525439646 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\geometric.h
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<hashtable.h>
 	<boost/functional/hash.hpp>
 	"entity.h"
+	<SDL/SDL.h>
 
 1525385583 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderlogictest.h
 	"component.h"
@@ -692,4 +695,18 @@
 	<SDL/SDL_ttf.h>
 	"SDL_gpu.h"
 	<stdarg.h>
+
+1526229595 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderer.h
+	"font.h"
+	"geometric.h"
+	"texture.h"
+
+1526228603 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderersdl.cpp
+	"rendererSDL.h"
+	"window.h"
+	<SDL/SDL2_gfxPrimitives.h>
+
+1526228835 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderersdl.h
+	"renderer.h"
+	<iostream>
 
