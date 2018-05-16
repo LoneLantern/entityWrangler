@@ -53,7 +53,7 @@ public:
     }
     Texture(SDL_Surface *surface);
 
-    virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0) const;
+    virtual SDL_Texture *use(GLenum channel = GL_TEXTURE0) ;
     void copyOnto(const Texture& rhs, SYSTEM_NAMESPACE::Vec2i location, bool changeSize = false, bool leaveOpenForChanges = false)
     {
         this->setOpenForChanges(true);

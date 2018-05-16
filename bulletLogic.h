@@ -71,16 +71,17 @@ public:
             {
                 rotation=360.0f-rotation;
             }
-            if(dir.Length()<0.05f)
+
+            if(distanceCenter.Length()<0.05f)
             {
                 ComponentBase::removeGlobal(h);
             }
             trans.setRotation({0.0f,0.0f,rotation});
             Vec2i position = Window::gLC2Px(trans.getPosition2D());
             Vec2i playerPosition = Window::gLC2Px(playerPos->getPosition2D());
-            SDL_SetRenderDrawColor(Window::getActiveRenderer(),255-(dir.Length()-0.3)*150,255-(dir.Length()-0.6)*150,255-(dir.Length()-0.9)*150,255);
+            SDL_SetRenderDrawColor(Window::getActiveWindow().getSDLRenderer(),255-(dir.Length()-0.3)*150,255-(dir.Length()-0.6)*150,255-(dir.Length()-0.9)*150,255);
 
-            SDL_RenderDrawLine(Window::getActiveRenderer(),position.x,position.y,playerPosition.x,playerPosition.y);
+            SDL_RenderDrawLine(Window::getActiveWindow().getSDLRenderer(),position.x,position.y,playerPosition.x,playerPosition.y);
             //cout<<trans.getPosition().x<<"|"<<trans.getPosition().y<<"|"<<trans.getPosition().z<<"\n";
             //std::cout<<"|";*/
         }

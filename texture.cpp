@@ -122,9 +122,9 @@ void Texture::initFromSDLSurf(SDL_Surface *surface)
     this->SDLSurf = surface;
     this->initDimensions(surface);
 
-    if(Window::getActiveRenderer()!=nullptr&&Window::getActiveRenderer()!=NULL)
+    if(Window::getActiveWindow().getSDLRenderer()!=nullptr&&Window::getActiveWindow().getSDLRenderer()!=NULL)
     {
-        this->SDLTex = SDL_CreateTextureFromSurface(Window::getActiveRenderer(),surface);
+        this->SDLTex = SDL_CreateTextureFromSurface(Window::getActiveWindow().getSDLRenderer(),surface);
         if(!this->SDLTex)
         {
             throw std::runtime_error(IMG_GetError());
@@ -207,12 +207,12 @@ Texture::Texture(SDL_Surface *texture)
 
 
 
-SDL_Texture* Texture::use(GLenum channel)const
+SDL_Texture* Texture::use(GLenum channel)
 {
     /*if(!this->isOpenForChanges())
         return Texture::nullTex.use(channel);*/
 //    std::cout<<"Texture use called\n";
-    if(Window::getActiveRenderer()==nullptr)
+    if(Window::getActiveWindow().getSDLRenderer()==nullptr)
     {
         glActiveTexture(channel);
         glBindTexture(GL_TEXTURE_2D, this->GLTex);

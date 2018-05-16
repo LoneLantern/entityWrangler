@@ -42,13 +42,19 @@ public:
                     Vec2i pos = Window::gLC2Px({trans.getPosition().x,trans.getPosition().y});
                     Vec2i scale = h->getData()->getPxDimensions(trans.getScale());
 
-                    SDL_Rect rect = {pos.x,pos.y,scale.x,scale.y};
-                    // std::cout<<trans.getRotation().z<<"\n";
-                    SDL_SetRenderDrawColor(Window::getActiveRenderer(),255,0,0,255);
-                    SDL_RenderCopyEx(Window::getActiveRenderer(),h->getData()->use(),NULL,&rect,trans.getRotation().z,NULL,SDL_FLIP_NONE);
+                    Rectangle rect;
+                    rect.h = scale.y;
+                    rect.w = scale.x;
+                    rect.x = pos.x;
+                    rect.y = pos.y;
+                     //std::cout<<"("<<rect.x<<"|"<<rect.y<<"|"<<rect.h<<"|"<<rect.w<<"\n";
+                    SDL_SetRenderDrawColor(Window::getActiveWindow().getSDLRenderer(),255,0,0,255);
+                    Window::getActiveRenderer()->drawTexture(*h->getData(),rect,trans.getRotation().z,{rect.w/2,rect.h/2});
 
-                    SDL_RenderDrawRect(Window::getActiveRenderer(),&rect);
+                    //SDL_RenderCopyEx(Window::getActiveWindow().getSDLRenderer(),h->getData()->use(),NULL,&rect,trans.getRotation().z,NULL,SDL_FLIP_NONE);
 
+                    //SDL_RenderDrawRect(Window::getActiveWindow().getSDLRenderer(),&rect);
+                    Window::getActiveRenderer()->drawRectangle(rect);
                     h=h->getNext();
                     x+=0.01f;
                     help=help->getNext();

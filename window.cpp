@@ -62,6 +62,9 @@ void Window::initWindow(const char* name,int x,int y,int w,int h,Renderer* rende
     }
     else
     {
+        this->sdlRenderer = SDL_CreateRenderer(this->window,-1,SDL_RENDERER_ACCELERATED);
+       // if(renderer == NULL||renderer == nullptr)
+            renderer = new RendererSDL(this->sdlRenderer);
         this->renderer = renderer;
         if(!this->renderer)
             throw std::runtime_error(SDL_GetError());
@@ -90,16 +93,19 @@ SDL_Rect Window::getDimensions()
     return this->dimensions;
 }
 
+SDL_Renderer *Window::getSDLRenderer(){
+    return this->sdlRenderer;
+}
 
 Window::Window(const char* name,int x,int y,int w,int h,int flags)
 {
-    this->initWindow(name,x,y,w,h,flags);
+    this->initWindow(name,x,y,w,h,NULL,flags);
 }
 
 Window::Window(const char* name,int x,int y,int w,int h,Renderer *renderer,int flags)
 {
 
-    this->initWindow(name,x,y,w,h,flags);
+    this->initWindow(name,x,y,w,h,renderer,flags);
 }
 
 SDL_Window *Window::getWindow()
@@ -156,7 +162,7 @@ Window::~Window()
 
     SDL_DestroyWindow(this->window);
     if(this->renderer!=nullptr)
-        SDL_DestroyRenderer(this->renderer);
+        SDL_DestroyRenderer(this->sdlRenderer);
     else SDL_GL_DeleteContext(this->context);
 
 }

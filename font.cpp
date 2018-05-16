@@ -46,11 +46,11 @@ TTF_Font* CharSet::getFont()
 }*/
 Font::Font(const char* path, uint8_t size, int r,int g,int b){
   //  this->font = FC_CreateFont();
-//    FC_LoadFont(font, Window::getActiveRenderer(), path, size, FC_MakeColor(r,g,b,255), TTF_STYLE_NORMAL);
+//    FC_LoadFont(font, Window::getActiveWindow().getSDLRenderer(), path, size, FC_MakeColor(r,g,b,255), TTF_STYLE_NORMAL);
 }
 void Font::draw(const char* text, int x,int y)
 {
-    //FC_Draw(this->font,Window::getActiveRenderer(),x,y,text);
+    //FC_Draw(this->font,Window::getActiveWindow().getSDLRenderer(),x,y,text);
     //FC_Draw(font, renderer, 0, 0, "This is %s.\n It works.", "example text");
 }/*
 

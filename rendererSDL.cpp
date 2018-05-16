@@ -24,7 +24,7 @@ void RendererSDL::drawCircle(float x, float y,float radius, bool filled){
 void RendererSDL::drawLine(const SYSTEM_NAMESPACE::Vec3f pointA, const SYSTEM_NAMESPACE::Vec3f pointB){
     thickLineRGBA(this->sdlRenderer, pointA.x, pointA.y, pointB.x, pointB.y, this->strokeWidth, this->color.r, this->color.b, this->color.g, this->color.a);
 }
-void RendererSDL::drawTexture(const Texture &texture, const SYSTEM_NAMESPACE::Rectangle &rect, float rotation, Vec2f center){
+void RendererSDL::drawTexture(Texture &texture, const SYSTEM_NAMESPACE::Rectangle &rect, float rotation, Vec2f center){
     SDL_Rect converted = rect;
     SDL_Point centerConverted = {center.x,center.y};
     SDL_RenderCopyEx(this->sdlRenderer, texture.use(), NULL, &converted,rotation,&centerConverted,SDL_FLIP_NONE);

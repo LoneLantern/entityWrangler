@@ -225,8 +225,8 @@ int main(SDL_MAIN_PARAM)
             //Hook::call("update",time);
             Vec3f newPlayerPos;
             appC.startFrame();
-            SDL_SetRenderDrawColor(Window::getActiveRenderer(),100,100,100,255);
-            SDL_RenderClear(Window::getActiveRenderer());
+            SDL_SetRenderDrawColor(Window::getActiveWindow().getSDLRenderer(),100,100,100,255);
+            SDL_RenderClear(Window::getActiveWindow().getSDLRenderer());
 
             for(ProgramLogic& sys:ProgramLogic::getRegister())
             {
