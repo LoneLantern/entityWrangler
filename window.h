@@ -17,6 +17,7 @@ class Window
 {
 private:
     Renderer *renderer;
+    SDL_Renderer *sdlRenderer;
     SDL_Window *window;
     SDL_GLContext context;
     SDL_Rect dimensions;
@@ -26,7 +27,7 @@ private:
 
     void initDimensions(int x,int y,int w,int h);
 
-    void initWindow(const char* name,int x,int y,int w,int h,int FLAGS);
+    void initWindow(const char* name,int x,int y,int w,int h,Renderer* renderer,int FLAGS);
 
 public:
 
@@ -36,9 +37,14 @@ public:
 
     Window(const char* name,int x,int y,int w,int h,int FLAGS);
 
+    Window(const char* name,int x,int y,int w,int h,Renderer *renderer,int FLAGS);
+
+
     SDL_Window *getWindow();
 
     Renderer *getRenderer();
+
+    SDL_Renderer *getSDLRenderer();
 
     SDL_GLContext getContext();
 

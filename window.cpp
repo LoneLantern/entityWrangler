@@ -39,7 +39,7 @@ void Window::initOGLSystems()
     }
 }
 
-void Window::initWindow(const char* name,int x,int y,int w,int h,int flags)
+void Window::initWindow(const char* name,int x,int y,int w,int h,Renderer* renderer,int flags)
 {
     this->initSystems();
     this->initDimensions(x,y,w,h);
@@ -62,7 +62,7 @@ void Window::initWindow(const char* name,int x,int y,int w,int h,int flags)
     }
     else
     {
-        this->renderer = new RendererSDL();
+        this->renderer = renderer;
         if(!this->renderer)
             throw std::runtime_error(SDL_GetError());
     }
@@ -93,6 +93,12 @@ SDL_Rect Window::getDimensions()
 
 Window::Window(const char* name,int x,int y,int w,int h,int flags)
 {
+    this->initWindow(name,x,y,w,h,flags);
+}
+
+Window::Window(const char* name,int x,int y,int w,int h,Renderer *renderer,int flags)
+{
+
     this->initWindow(name,x,y,w,h,flags);
 }
 

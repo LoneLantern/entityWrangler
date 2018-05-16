@@ -5,8 +5,8 @@
 #define SDK_RENDERDRAWCIRCLE(renderer, x, y, radius, filled) if(filled) aacircleRGBA(renderer,x,y,radius,this->color.r,this->color.g,this->color.b,this->color.a); else filledCircleRGBA(renderer,x,y,radius,this->color.r,this->color.g,this->color.b,this->color.a);
 #include <SDL/SDL2_gfxPrimitives.h>
 
-RendererSDL::RendererSDL(){
-    this->sdlRenderer = SDL_CreateRenderer(Window::getActiveWindow().getWindow(),-1,SDL_RENDERER_ACCELERATED);
+RendererSDL::RendererSDL(SDL_Renderer *renderer){
+    this->sdlRenderer = renderer;
     this->color.r = this->color.b = this->color.g = this->color.a = 255;
     this->strokeWidth = 1.0f;
 }

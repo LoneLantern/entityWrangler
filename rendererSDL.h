@@ -10,7 +10,7 @@ private:
     SDL_Color color;
     float strokeWidth;
 public:
-    RendererSDL();
+    RendererSDL(SDL_Renderer *renderer);
     virtual void drawText( const char* text);
     virtual void drawRectangle(const SYSTEM_NAMESPACE::Rectangle &rect, bool filled = false);
     virtual void drawCircle(float x, float y,float radius, bool filled= false);
