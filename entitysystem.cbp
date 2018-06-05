@@ -46,6 +46,7 @@
 		<Unit filename="action.h" />
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
+		<Unit filename="blueprint.h" />
 		<Unit filename="bulletLogic.h" />
 		<Unit filename="collidable.h" />
 		<Unit filename="component.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="instanceCounted.h" />
 		<Unit filename="iteratorTools.h" />
 		<Unit filename="list.h" />
+		<Unit filename="logger.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="nameable.h" />
 		<Unit filename="node.h" />

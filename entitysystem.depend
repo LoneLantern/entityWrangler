@@ -405,7 +405,7 @@
 	<SDL/SDL_opengl.h>
 	<string>
 
-1524998740 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
+1526927042 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
 	"componentBase.h"
 	"entity.h"
 	<algorithm>
@@ -426,7 +426,7 @@
 	"component.h"
 	<UnitTest++.h>
 
-1525691111 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
+1527590090 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\component.h
 	<boost/uuid/uuid.hpp>
 	<unordered_map>
 	<utility>
@@ -437,6 +437,9 @@
 	"componentBase.h"
 	"entity.h"
 	<memory>
+	<boost/lexical_cast.hpp>
+	<boost/uuid/uuid_io.hpp>
+	"logger.h"
 
 1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\list.h
 	"node.h"
@@ -454,7 +457,7 @@
 	<string>
 	<cstring>
 
-1525437149 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
+1526926497 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\entity.h
 	"componentBase.h"
 	<boost/uuid/uuid_generators.hpp>
 	<memory>
@@ -512,7 +515,7 @@
 	"globalDefines.h"
 	"entity.h"
 
-1526479744 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
+1527020974 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main.cpp
 	<iostream>
 	<string>
 	"node.h"
@@ -530,6 +533,7 @@
 	"userInput.h"
 	"bulletLogic.h"
 	"action.h"
+	"blueprint.h"
 	"texAnim.h"
 
 1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\systemctypes.h
@@ -544,12 +548,13 @@
 	"system.h"
 	"iteratorTools.h"
 
-1525424640 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.h
+1527590110 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.h
 	"geometric.h"
 	"component.h"
 	<SDL/SDL.h>
 	"window.h"
 	"application.h"
+	"logger.h"
 
 1524644895 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\system.h
 	"instanceCounted.h"
@@ -558,7 +563,7 @@
 	<algorithm>
 	<iostream>
 
-1525425383 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.h
+1526845736 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.h
 	<SDL/SDL.h>
 	<vector>
 	<iostream>
@@ -575,7 +580,7 @@
 	"iteratorTools.h"
 	"userInput.h"
 
-1526481121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.h
+1527144934 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texanim.h
 	"texture.h"
 	<vector>
 	<memory>
@@ -597,7 +602,7 @@
 	<ctime>
 	<iostream>
 
-1526481121 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
+1526929028 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\texture.cpp
 	"texture.h"
 	<iostream>
 	"window.h"
@@ -609,7 +614,7 @@
 1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\transform.cpp
 	"transform.h"
 
-1525436669 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
+1526846229 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\userinput.cpp
 	"userInput.h"
 	<iostream>
 
@@ -660,7 +665,7 @@
 	"entity.h"
 	<SDL/SDL.h>
 
-1526491290 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderlogictest.h
+1527158207 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderlogictest.h
 	"component.h"
 	"texture.h"
 	<unistd.h>
@@ -668,7 +673,7 @@
 	"programlogic.h"
 	"iteratorTools.h"
 
-1526491500 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\bulletlogic.h
+1527591491 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\bulletlogic.h
 	"programlogic.h"
 	"entity.h"
 	"texture.h"
@@ -677,6 +682,7 @@
 	<cmath>
 	"iteratorTools.h"
 	"userInput.h"
+	"logger.h"
 	"transform.h"
 
 1524950760 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\programlogic.h
@@ -698,12 +704,12 @@
 	"SDL_gpu.h"
 	<stdarg.h>
 
-1526481121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderer.h
+1526842779 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderer.h
 	"font.h"
 	"geometric.h"
 	"texture.h"
 
-1526490814 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderersdl.cpp
+1526844722 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderersdl.cpp
 	"rendererSDL.h"
 	"window.h"
 	<SDL/SDL2_gfxPrimitives.h>
@@ -711,4 +717,448 @@
 1526481121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\renderersdl.h
 	"renderer.h"
 	<iostream>
+
+1524985079 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\application.cpp
+	"application.h"
+
+1524984323 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\application.h
+	<SDL/SDL.h>
+	<stdexcept>
+	<GL/glew.h>
+	<SDL/SDL_opengl.h>
+	<string>
+
+1526927042 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\componentbase.cpp
+	"componentBase.h"
+	"entity.h"
+	<algorithm>
+
+1524999630 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\componentbase.h
+	"instanceCounted.h"
+	<typeinfo>
+	<vector>
+	<utility>
+	<functional>
+	<iostream>
+	<unordered_set>
+
+1523878248 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\instancecounted.h
+	<cstdint>
+
+1526926497 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\entity.h
+	"componentBase.h"
+	<boost/uuid/uuid_generators.hpp>
+	<memory>
+	<iostream>
+
+1524952351 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\componenttest.cpp
+	"component.h"
+	<UnitTest++.h>
+
+1527021887 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\component.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<utility>
+	<boost/functional/hash.hpp>
+	"instanceCounted.h"
+	"list.h"
+	"parser.h"
+	"componentBase.h"
+	"entity.h"
+	<memory>
+	<boost/lexical_cast.hpp>
+	<boost/uuid/uuid_io.hpp>
+
+1524915660 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\list.h
+	"node.h"
+
+1524915660 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\node.h
+	<memory>
+	<typeinfo>
+	"instanceCounted.h"
+	<iostream>
+
+1524915660 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\parser.h
+	<string>
+	<cstring>
+
+1524647370 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\entity.cpp
+	"Entity.h"
+
+1526480270 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\font.cpp
+	"font.h"
+	<SDL/SDL.h>
+	"window.h"
+	<iostream>
+
+1525422790 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\font.h
+	<SDL/SDL_ttf.h>
+	<unordered_map>
+	"texture.h"
+	"SDL_FontCache.h"
+	<memory>
+
+1526481121 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\texture.h
+	"application.h"
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<SDL/SDL_image.h>
+	"geometric.h"
+	"instanceCounted.h"
+	"component.h"
+
+1525439646 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\geometric.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<hashtable.h>
+	<boost/functional/hash.hpp>
+	"entity.h"
+	<SDL/SDL.h>
+
+1525422554 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\sdl_fontcache.h
+	<SDL/SDL.h>
+	<SDL/SDL_ttf.h>
+	"SDL_gpu.h"
+	<stdarg.h>
+
+1526479250 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\window.h
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<stdexcept>
+	"geometric.h"
+	"renderer.h"
+
+1526842779 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\renderer.h
+	"font.h"
+	"geometric.h"
+	"texture.h"
+
+1524985347 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\gamelogic.cpp
+	"programlogic.h"
+
+1524950760 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\programlogic.h
+	"instanceCounted.h"
+	<functional>
+	<vector>
+	<algorithm>
+	<iostream>
+
+1527020974 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\main.cpp
+	<iostream>
+	<string>
+	"node.h"
+	"list.h"
+	"component.h"
+	<unordered_map>
+	<boost/uuid/uuid_io.hpp>
+	<random>
+	"systemCTypes.h"
+	"texture.h"
+	"window.h"
+	"font.h"
+	"renderLogictest.h"
+	<UnitTest++.h>
+	"userInput.h"
+	"bulletLogic.h"
+	"action.h"
+	"blueprint.h"
+	"texAnim.h"
+
+1524953047 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\systemctypes.h
+	"component.h"
+	<string>
+
+1526491290 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\renderlogictest.h
+	"component.h"
+	"texture.h"
+	<unistd.h>
+	"transform.h"
+	"programlogic.h"
+	"iteratorTools.h"
+
+1525424640 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\transform.h
+	"geometric.h"
+	"component.h"
+	<SDL/SDL.h>
+	"window.h"
+	"application.h"
+
+1524645284 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\iteratortools.h
+
+1526845736 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\userinput.h
+	<SDL/SDL.h>
+	<vector>
+	<iostream>
+	<algorithm>
+	<chrono>
+
+1527021517 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\bulletlogic.h
+	"programlogic.h"
+	"entity.h"
+	"texture.h"
+	"component.h"
+	<iostream>
+	<cmath>
+	"iteratorTools.h"
+	"userInput.h"
+	"transform.h"
+
+1524984314 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\action.h
+	<functional>
+	<tuple>
+
+1526929034 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\texanim.h
+	"texture.h"
+	<vector>
+	<memory>
+	<string>
+
+1524915660 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\parser.cpp
+	"parser.h"
+	<cstring>
+
+1526844722 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\renderersdl.cpp
+	"rendererSDL.h"
+	"window.h"
+	<SDL/SDL2_gfxPrimitives.h>
+
+1526481121 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\renderersdl.h
+	"renderer.h"
+	<iostream>
+
+1525422011 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\sdl_fontcache.cpp
+	"SDL_FontCache.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1524952351 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\systemctypes.cpp
+	"systemCTypes.h"
+
+1526481121 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\texanim.cpp
+	"texAnim.h"
+	<boost/filesystem.hpp>
+	<ctime>
+	<iostream>
+
+1526929028 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\texture.cpp
+	"texture.h"
+	<iostream>
+	"window.h"
+
+1524915660 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\texturetest.cpp
+	<UnitTest++.h>
+	<SDL/SDL.h>
+
+1523878250 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\transform.cpp
+	"transform.h"
+
+1526846229 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\userinput.cpp
+	"userInput.h"
+	<iostream>
+
+1526481497 source:e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\window.cpp
+	"window.h"
+	<iostream>
+	<math.h>
+	"renderer.h"
+	"rendererSDL.h"
+
+1527021375 e:\users\moustachespy\documents\mega\notebook\programming\persönliche projekte\entitysystem\entitysystem\blueprint.h
+	"entity.h"
+	"component.h"
+
+1527146686 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\blueprint.h
+	"entity.h"
+	"component.h"
+
+1527591292 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\logger.h
+
+1524647370 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\entity\entity.cpp
+	"Entity.h"
+
+1528207390 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\entity\entity.h
+	"../component/componentBase.h"
+	<boost/uuid/uuid_generators.hpp>
+	<memory>
+	<iostream>
+
+1528207396 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\component\componentbase.h
+	"../utility/instanceCounted.h"
+	<typeinfo>
+	<vector>
+	<utility>
+	<functional>
+	<iostream>
+	<unordered_set>
+
+1523878248 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\instancecounted.h
+	<cstdint>
+
+1524985347 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\logic\programlogic.cpp
+	"programlogic.h"
+
+1528207403 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\logic\programlogic.h
+	"../utility/instanceCounted.h"
+	<functional>
+	<vector>
+	<algorithm>
+	<iostream>
+
+1528207440 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\component\componentbase.cpp
+	"componentBase.h"
+	"../entity/entity.h"
+	<algorithm>
+
+1528208071 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\font.cpp
+	"font.h"
+	<SDL/SDL.h>
+	"window.h"
+	<iostream>
+
+1528208060 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\font.h
+	<SDL/SDL_ttf.h>
+	<unordered_map>
+	"texture.h"
+	<memory>
+
+1524985079 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\application.cpp
+	"application.h"
+
+1524984323 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\application.h
+	<SDL/SDL.h>
+	<stdexcept>
+	<GL/glew.h>
+	<SDL/SDL_opengl.h>
+	<string>
+
+1524952351 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\component\systemctypes.cpp
+	"systemCTypes.h"
+
+1524953047 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\component\systemctypes.h
+	"component.h"
+	<string>
+
+1528208091 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\component\component.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<utility>
+	<boost/functional/hash.hpp>
+	"../utility/instanceCounted.h"
+	"../data/list.h"
+	"../utility/parser.h"
+	"componentBase.h"
+	"../entity/entity.h"
+	<memory>
+	<boost/lexical_cast.hpp>
+	<boost/uuid/uuid_io.hpp>
+	"../utility/io/logger.h"
+
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\list.h
+	"node.h"
+
+1528208013 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\node.h
+	<memory>
+	<typeinfo>
+	"../utility/application.h"
+	"../utility/instanceCounted.h"
+	<iostream>
+
+1524915660 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\parser.h
+	<string>
+	<cstring>
+
+1527591292 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\io\logger.h
+
+1526481121 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\texture\texanim.cpp
+	"texAnim.h"
+	<boost/filesystem.hpp>
+	<ctime>
+	<iostream>
+
+1527144934 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\texture\texanim.h
+	"texture.h"
+	<vector>
+	<memory>
+	<string>
+
+1528207633 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\texture\texture.h
+	"../utility/application.h"
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<SDL/SDL_image.h>
+	"../data/geometric.h"
+	"../utility/instanceCounted.h"
+	"../component/component.h"
+
+1528207574 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\geometric.h
+	<boost/uuid/uuid.hpp>
+	<unordered_map>
+	<hashtable.h>
+	<boost/functional/hash.hpp>
+	"../entity/entity.h"
+	<SDL/SDL.h>
+
+1524915660 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\parser.cpp
+	"parser.h"
+	<cstring>
+
+1526846229 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\userinput.cpp
+	"userInput.h"
+	<iostream>
+
+1526845736 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\utility\userinput.h
+	<SDL/SDL.h>
+	<vector>
+	<iostream>
+	<algorithm>
+	<chrono>
+
+1523878250 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\transform.cpp
+	"transform.h"
+
+1528207719 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\data\transform.h
+	"geometric.h"
+	"../component/component.h"
+	<SDL/SDL.h>
+	"../window/window.h"
+	"../utility/application.h"
+	"../utility/io/logger.h"
+
+1528207689 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\window\window.h
+	<GL/glew.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	<stdexcept>
+	"../data/geometric.h"
+	"../renderer/renderer.h"
+
+1528208119 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\renderer\renderer.h
+	"../data/font.h"
+	"../data/geometric.h"
+	"../texture/texture.h"
+
+1528208142 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\window\window.cpp
+	"window.h"
+	<iostream>
+	<math.h>
+	"../renderer/renderer.h"
+	"../renderer/rendererSDL.h"
+
+1526481121 c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\renderer\renderersdl.h
+	"renderer.h"
+	<iostream>
+
+1528208155 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\texture\texture.cpp
+	"texture.h"
+	<iostream>
+	"../window/window.h"
+
+1528208184 source:c:\users\moustachespy\documents\programmierung\persönliche projekte\entitysystem\entitysystem\main\renderer\renderersdl.cpp
+	"rendererSDL.h"
+	"../window/window.h"
+	<SDL/SDL2_gfxPrimitives.h>
 

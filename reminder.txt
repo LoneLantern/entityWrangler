@@ -1,8 +1,0 @@
-1. Extend raw types with more general functions like toString and anything else that could be useful
-2. Implement a common interface that forces all class to have some basic functions like toString (inspired by java)
-    * Maybe also force them to name a class name in the constructor so that the class can be differenciated using a simple name
-    * Would also allow me to make a generic toString that at least names the class name and InstanceCount
-.
-.
-.
-.
